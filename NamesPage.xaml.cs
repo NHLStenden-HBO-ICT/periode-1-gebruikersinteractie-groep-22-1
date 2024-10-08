@@ -1,4 +1,4 @@
-﻿using Slime_Busters_Main_Menu;
+﻿using Slime_Busters_Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Slime_Busters
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            Names.Content = new MainWindow();
+            Names.Content = new MenuPage();
         }
     }
 }
