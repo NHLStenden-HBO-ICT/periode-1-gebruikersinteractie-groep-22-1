@@ -9,6 +9,7 @@ namespace Slime_Busters_Main_Menu
         public MainWindow()
         {
             InitializeComponent();
+            Console.WriteLine("Hello World!");  
         }
 
         private void SpelenButtonClick(object sender, RoutedEventArgs e)
