@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Slime_Busters"
       mc:Ignorable="d" 
-      d:DesignHeight="1280" d:DesignWidth="720"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="WinkelPage">
 
     <Grid Height="1080px" Width="1920px">
