@@ -9,7 +9,7 @@
       Title="WinkelPage">
 
     <Grid Height="1080px" Width="1920px">
-        <Rectangle Width="1920" Height="1080" Fill="Blue" />
+        <Rectangle Width="1440" Height="900" Fill="Blue" />
         <TextBlock Text="Winkel Page" FontSize="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="BackButtonClick"/>
         <Frame Name="Winkel" NavigationUIVisibility="Hidden" Height="1080px" Width="1920px"></Frame>
