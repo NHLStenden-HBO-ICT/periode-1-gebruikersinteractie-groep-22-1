@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Slime_Busters_Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace Slime_Busters
         public WinkelPage()
         {
             InitializeComponent();
+        }
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            Winkel.Content = new MenuPage();
         }
     }
 }
