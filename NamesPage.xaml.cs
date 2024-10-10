@@ -29,5 +29,10 @@ namespace Slime_Busters
         {
             Names.Content = new MenuPage();
         }
+
+        private void Names_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }
