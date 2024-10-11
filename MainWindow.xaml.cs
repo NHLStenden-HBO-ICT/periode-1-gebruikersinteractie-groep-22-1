@@ -11,4 +11,5 @@ namespace Slime_Busters_Menu
             MainFrame.Navigate(new MenuPage());
         }
     }
+
 }
