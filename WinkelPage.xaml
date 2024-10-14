@@ -10,8 +10,31 @@
 
     <Grid Height="1080px" Width="1920px">
         <Rectangle Width="1920" Height="1080" Fill= "Orange" />
-        <TextBlock Text="Winkel Page" FontSize="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="BackButtonClick"/>
-        <Frame Name="Winkel" NavigationUIVisibility="Hidden" Height="1080px" Width="1920px"></Frame>
+        <Rectangle Width="300" Height="100" Fill="Gray" Margin="760,50,760,932" />
+        <TextBlock Text="Winkel" FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"/>
+        <Button x:Name="BackButton" Content="Terug" FontSize="70"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,50,0,0" Click="BackButtonClick" Height="100" Width="250"/>
+        <Frame Name="Winkel" NavigationUIVisibility="Hidden" Height="1080px" Width="1920px" Navigated="Winkel_Navigated"></Frame>
+
+
+        <!-- Coins Display (Top-Right Corner) -->
+        <TextBlock x:Name="CoinsTextBlock" Text="Munten: 100" 
+                   HorizontalAlignment="Right" VerticalAlignment="Top"
+                   FontSize="70" Margin="0,50,50,0"/>
+        
+        <!-- Center Content: Upgrades Section -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" >
+            <!-- Attack Upgrade -->
+            <StackPanel>
+                <Button x:Name="AttackButton" Content="Aanval 10 Munten" FontSize="38" Click="AttackButton_Click" Width="500" Height="60" />
+                <ProgressBar x:Name="AttackProgressBar" Width="500" Height="20" Minimum="0" Maximum="5" Value="0" Margin="0,5"/>
+            </StackPanel>
+            
+            <!-- Defense Upgrade -->
+            <StackPanel>
+
+                <Button x:Name="DefenseButton" Content="Verdediging 10 Munten" FontSize="38" Click="DefenseButton_Click" Width="500" Height="60"/>
+                <ProgressBar x:Name="DefenseProgressBar" Width="500" Height="20" Minimum="0" Maximum="5" Value="0" Margin="0,5"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
