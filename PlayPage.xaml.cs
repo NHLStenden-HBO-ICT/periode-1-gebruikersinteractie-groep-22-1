@@ -73,7 +73,7 @@ namespace Slime_Busters
                 moveRightOne = false;
 
             if (e.Key == Key.W)
-                ShootBullet(playerOne, 10);
+                ShootBullet(playerOne, 10, 780);
 
 
             if (e.Key == Key.J)
@@ -82,9 +82,9 @@ namespace Slime_Busters
                 moveRightTwo = false;
 
             if (e.Key == Key.I)
-                ShootBullet(playerTwo, -10);
+                ShootBullet(playerTwo, -10, 780);
         }
-        private void ShootBullet(Rectangle player, int direction)
+        private void ShootBullet(Rectangle player, int direction, double playerCenterHeight)
         {
             Rectangle bullet = new Rectangle
             {
@@ -93,7 +93,7 @@ namespace Slime_Busters
                 Fill = Brushes.Black
             };
 
-            Canvas.SetTop(bullet, Canvas.GetTop(player) + (player.Height / 2) - (bullet.Height / 2));
+            Canvas.SetTop(bullet, Canvas.GetBottom(player) + playerCenterHeight - (bullet.Height / 2));
             Canvas.SetLeft(bullet, Canvas.GetLeft(player) + (direction > 0 ? player.Width : -bullet.Width));
 
             PlayerScreen.Children.Add(bullet);
