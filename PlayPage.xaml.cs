@@ -22,8 +22,10 @@ namespace Slime_Busters
         private bool moveLeftOne, moveRightOne;
         private bool moveLeftTwo, moveRightTwo;
         private double playerSpeed = 10;
+        private int slimeSpeed = 5;
 
         private DispatcherTimer gameTimer;
+        private DispatcherTimer spawnTimer;
 
         public PlayPage()
         {
@@ -33,6 +35,11 @@ namespace Slime_Busters
             gameTimer.Interval = TimeSpan.FromMilliseconds(1);
             gameTimer.Tick += GameTimer;
             gameTimer.Start();
+
+            spawnTimer = new DispatcherTimer();
+            spawnTimer.Interval = TimeSpan.FromSeconds(5);
+            spawnTimer.Tick += SpawnSlime;
+            spawnTimer.Start();
 
             PlayerScreen.Focus();
         }
@@ -114,6 +121,52 @@ namespace Slime_Busters
                     if (Canvas.GetLeft(bullet) < 0 || Canvas.GetLeft(bullet) > PlayerScreen.ActualWidth)
                     {
                         PlayerScreen.Children.Remove(bullet);
+                        break;
+                    }
+                }
+            }
+        }
+        private void SpawnSlime(object sender, EventArgs e)
+        {
+            SpawnMovingRectangle(slimeSpeed);
+
+            SpawnMovingRectangle(-slimeSpeed);
+        }
+
+
+        private void SpawnMovingRectangle(int direction)
+        {
+            Rectangle slime = new Rectangle
+            {
+                Width = 50,
+                Height = 50,
+                Fill = Brushes.Green
+            };
+
+            double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
+            double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
+
+            Canvas.SetLeft(slime, centerX);
+            Canvas.SetTop(slime, centerY);
+
+
+            PlayerScreen.Children.Add(slime);
+
+            slime.Tag = direction;
+        }
+
+        private void MoveRectangles()
+        {
+            foreach (UIElement element in PlayerScreen.Children)
+            {
+                if (element is Rectangle slime && slime.Tag != null)
+                {
+                    int direction = (int)slime.Tag;
+
+                    Canvas.SetLeft(slime, Canvas.GetLeft(slime) + direction);
+                    if (Canvas.GetLeft(slime) < 0 || Canvas.GetLeft(slime) > PlayerScreen.ActualWidth)
+                    {
+                        PlayerScreen.Children.Remove(slime);
                         break;
                     }
                 }
