@@ -27,7 +27,12 @@ namespace Slime_Busters
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            Names.Content = new MainWindow();
+            Names.Content = new MainWindow(); //Go back to main menu
+        }
+
+        private void PlayButtonClick(object sender, RoutedEventArgs e)
+        {
+            Names.Content = new PlayPage(); //Start the game
         }
     }
 }
