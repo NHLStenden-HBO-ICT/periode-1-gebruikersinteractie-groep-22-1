@@ -35,13 +35,10 @@ namespace Slime_Busters
 
         private void StartButtonClick(object sender, RoutedEventArgs e)
         {
-            string nameP1 = namePlayer1.Text;
-            string nameP2 = namePlayer2.Text;
+            Values.playerOneName = namePlayer1.Text;
+            Values.playerTwoName = namePlayer2.Text;
 
-            playerNames["Player1"] = nameP1;
-            playerNames["Player2"] = nameP2;
-
-            NavigationService.Navigate(new PlayPage(playerNames["Player1"], playerNames["Player2"]));
+            NavigationService.Navigate(new PlayPage(Values.playerOneName, Values.playerTwoName));
         }
 
         private void Names_Navigated(object sender, NavigationEventArgs e)
