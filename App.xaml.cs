@@ -5,7 +5,7 @@ using System.Windows;
 namespace Slime_Busters
 {
     /// <summary>
-    /// Interaction logic for App.xaml test
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
