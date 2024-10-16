@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Slime_Busters;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows;
 using System.Windows.Navigation;
 
 namespace Slime_Busters_Menu
@@ -9,6 +11,7 @@ namespace Slime_Busters_Menu
         {
             InitializeComponent();
             MainFrame.Navigate(new MenuPage());
+            
         }
     }
 
