@@ -8,7 +8,7 @@ namespace Slime_Busters
 {
     class Values
     {
-        // Game values
+        // Game
         public static int currentLevel = 0; // Wordt 1 wanneer eerste spel begint, kan later gebruikt worden om meerdere levels te maken
         public static int coins = 0;
 
@@ -16,12 +16,16 @@ namespace Slime_Busters
         public static string playerOneName = "blank"; // Aanpassen op naam scherm
         public static string playerTwoName = "blank"; // Aanpassen op naam scherm
 
-        // Player set values
+        // Player set
         public static int playersMovementSpeed = 10; // Snelheid dat speler loopt
         public static int playersMaxHealth = 100; // Maximale hp (aanpasbaar in winkel)
         public static int playersDamage = 5; // Damage per tick (aanpasbaar in winkel)
 
-        // Player game values
+        // Player upgrade
+        public static int playerHealthUpgrade = 0;
+        public static int playerDamageUpgrade = 0;
+
+        // Player game
         public static int playerOneCurrentHealth = playersMaxHealth; // Aanpassen tijdens spel
         public static int playerTwoCurrentHealth = playersMaxHealth; // Aanpassen tijdens spel
 
