@@ -8,8 +8,10 @@ namespace Slime_Busters
 {
     class Value
     {
-        // Roep de backend values op:
-
+        // DEZE CODE NIET GEBRUIKEN
+        // Is oude code van Daniel, laat er voor nu in staan,
+        // hebben we miss later nog wat aan maar voor nu niet
+        // gebruiken want werkt NIET
         
 
         // Methodes voor de values
