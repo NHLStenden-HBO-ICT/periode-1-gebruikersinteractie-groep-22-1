@@ -1,4 +1,4 @@
-﻿using Slime_Busters_Main_Menu;
+﻿using Slime_Busters_Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,18 +21,29 @@ namespace Slime_Busters
     /// </summary>
     public partial class NamesPage : Page
     {
+        private Dictionary<string, string> playerNames = new Dictionary<string, string>();
+
         public NamesPage()
         {
             InitializeComponent();
         }
+
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            Names.Content = new MainWindow(); //Go back to main menu
+            Names.Content = new MenuPage();
         }
 
-        private void PlayButtonClick(object sender, RoutedEventArgs e)
+        private void StartButtonClick(object sender, RoutedEventArgs e)
         {
-            Names.Content = new PlayPage(); //Start the game
+            Values.playerOneName = namePlayer1.Text;
+            Values.playerTwoName = namePlayer2.Text;
+
+            NavigationService.Navigate(new PlayPage(Values.playerOneName, Values.playerTwoName));
+        }
+
+        private void Names_Navigated(object sender, NavigationEventArgs e)
+        {
+            // Handle navigation events if needed
         }
     }
 }

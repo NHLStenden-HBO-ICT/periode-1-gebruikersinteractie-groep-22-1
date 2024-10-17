@@ -1,29 +1,18 @@
 ﻿using Slime_Busters;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Navigation;
 
-namespace Slime_Busters_Main_Menu
+namespace Slime_Busters_Menu
 {
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void SpelenButtonClick(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new NamesPage();
-        }
-
-        private void WinkelButtonClick(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new WinkelPage();
-        }
-
-        private void StoppenButtonClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
+            MainFrame.Navigate(new MenuPage());
+            
         }
     }
+
 }
