@@ -23,6 +23,9 @@ namespace Slime_Busters
         private bool moveLeftTwo, moveRightTwo;
         private double playerSpeed = 10;
         private int slimeSpeed = 5;
+        private int slimeHealth = 10;
+        private Dictionary<Rectangle, int> slimeHealthDictionary = new Dictionary<Rectangle, int>();
+
 
         private DispatcherTimer gameTimer;
         private DispatcherTimer spawnTimer;
@@ -80,7 +83,7 @@ namespace Slime_Busters
                 moveRightOne = false;
 
             if (e.Key == Key.W)
-                ShootBullet(playerOne, 10, 780);
+                MakeBullets(playerOne, 10, 780);
 
 
             if (e.Key == Key.J)
@@ -89,9 +92,9 @@ namespace Slime_Busters
                 moveRightTwo = false;
 
             if (e.Key == Key.I)
-                ShootBullet(playerTwo, -10, 780);
+                MakeBullets(playerTwo, -10, 780);
         }
-        private void ShootBullet(Rectangle player, int direction, double playerCenterHeight)
+        private void MakeBullets(Rectangle player, int direction, double playerCenterHeight)
         {
             Rectangle bullet = new Rectangle
             {
@@ -128,13 +131,13 @@ namespace Slime_Busters
         }
         private void SpawnSlime(object sender, EventArgs e)
         {
-            SpawnMovingRectangle(slimeSpeed);
+            SpawnMovingSlime(slimeSpeed);
 
-            SpawnMovingRectangle(-slimeSpeed);
+            SpawnMovingSlime(-slimeSpeed);
         }
 
 
-        private void SpawnMovingRectangle(int direction)
+        private void SpawnMovingSlime(int direction)
         {
             Rectangle slime = new Rectangle
             {
@@ -153,9 +156,11 @@ namespace Slime_Busters
             PlayerScreen.Children.Add(slime);
 
             slime.Tag = direction;
+
+            slimeHealthDictionary[slime] = slimeHealth;
         }
 
-        private void MoveRectangles()
+        private void MoveSlime()
         {
             foreach (UIElement element in PlayerScreen.Children)
             {
@@ -169,6 +174,19 @@ namespace Slime_Busters
                         PlayerScreen.Children.Remove(slime);
                         break;
                     }
+                }
+            }
+        }
+        private void DamageSlime(Rectangle slime, int damage)
+        {
+            if (slimeHealthDictionary.ContainsKey(slime))
+            {
+                slimeHealthDictionary[slime] -= damage;
+
+                if (slimeHealthDictionary[slime] <= 0)
+                {
+                    PlayerScreen.Children.Remove(slime);
+                    slimeHealthDictionary.Remove(slime);
                 }
             }
         }
