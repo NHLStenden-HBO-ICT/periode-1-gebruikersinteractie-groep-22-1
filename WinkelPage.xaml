@@ -32,13 +32,13 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" >
             <!-- Attack Upgrade -->
             <StackPanel>
-                <Button x:Name="AttackButton" Background="#FFFFD55A" FontFamily="Cooper Black" Content="Aanval 10 Munten" FontSize="38" Click="AttackButton_Click" Width="500" Height="60" BorderBrush="Black" BorderThickness="4" />
+                <Button x:Name="AttackButton" Background="#FFFFD55A" FontFamily="Cooper Black" Content="Aanval 10 Munten" FontSize="30" Click="AttackButton_Click" Width="500" Height="60" BorderBrush="Black" BorderThickness="4" />
                 <ProgressBar x:Name="AttackProgressBar" Width="500" Height="20" Minimum="0" Maximum="5" Value="0" Background="#FFE6E6E6" />
             </StackPanel>
 
             <!-- Defense Upgrade -->
             <StackPanel>
-                <Button x:Name="DefenseButton" Background="#FFFFD55A" FontFamily="Cooper Black" Content="Verdediging 10 Munten" FontSize="38" Click="DefenseButton_Click" Width="500" Height="60" BorderBrush="Black" BorderThickness="4"/>
+                <Button x:Name="DefenseButton" Background="#FFFFD55A" FontFamily="Cooper Black" Content="Verdediging 10 Munten" FontSize="30" Click="DefenseButton_Click" Width="500" Height="60" BorderBrush="Black" BorderThickness="4"/>
                 <ProgressBar x:Name="DefenseProgressBar" Width="500" Height="20" Minimum="0" Maximum="5" Value="0"/>
             </StackPanel>
         </StackPanel>
@@ -126,6 +126,55 @@
            HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,343,0,0" Stroke="Black" StrokeThickness="4" Visibility="Hidden" />
         <TextBlock x:Name="NotEnoughCoinsText" Text="Je hebt te weinig munten!" FontSize="40" FontFamily="Cooper Black" 
            Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,350,0,0" Visibility="Hidden"/>
+
+        <!-- Info Button (Knop met ?) -->
+        <Button x:Name="InfoAttack" Background="#FFFFD55A" Content="?" FontFamily="Cooper Black" FontSize="30" Width="60" Height="60" 
+        HorizontalAlignment="Left" VerticalAlignment="Top" 
+        Margin="1150,460,0,0" Click="InfoAttack_Click" BorderBrush="Black" BorderThickness="4"/>
+
+        <!-- Info Rectangle voor de uitleg (standaard verborgen) -->
+        <Rectangle x:Name="InfoAttackRectangle" Fill="#FFFFD55A" Stroke="Black" StrokeThickness="4" 
+           Width="294" Height="74" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" Visibility="Hidden" Margin="1223,460,0,0"/>
+
+        <!-- TextBlock met uitleg (standaard verborgen) -->
+        <TextBlock x:Name="InfoAttackText" Text="Als je de aanval van je robot verbetert, kan je sneller de slimes verslaan." 
+           FontSize="16" FontFamily="Cooper Black" Foreground="Black" 
+           HorizontalAlignment="Left" VerticalAlignment="Top" 
+           TextWrapping="Wrap" Width="289" Margin="1234,468,0,0" 
+           Visibility="Hidden" Height="59"/>
+
+        <!-- Button voor sluiten van de uitleg (kruisje, standaard verborgen) -->
+        <Button x:Name="CloseInfoAttack" Content="X" FontFamily="Cooper Black" FontSize="11" Width="17" Height="17" 
+        HorizontalAlignment="Right" VerticalAlignment="Top" Background="Red" BorderBrush="Black" BorderThickness="2"
+        Margin="0,454,397,0" Visibility="Hidden" Click="CloseInfoAttack_Click"/>
+
+
+
+        <!-- Info Button (Knop met ?) -->
+        <Button x:Name="InfoDefense" Background="#FFFFD55A" Content="?" FontFamily="Cooper Black" FontSize="30" Width="60" Height="60" 
+        HorizontalAlignment="Left" VerticalAlignment="Top" 
+        Margin="1150,540,0,0" Click="InfoDefense_Click" BorderBrush="Black" BorderThickness="4"/>
+
+        <!-- Info Rectangle voor de uitleg (standaard verborgen) -->
+        <Rectangle x:Name="InfoDefenseRectangle" Fill="#FFFFD55A" Stroke="Black" StrokeThickness="4" 
+           Width="294" Height="74" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" Visibility="Hidden" Margin="1223,540,0,0"/>
+
+        <!-- TextBlock met uitleg (standaard verborgen) -->
+        <TextBlock x:Name="InfoDefenseText" Text="Als je de verdediging van je robot verbetert, kunnen de slimes jou moeilijker verslaan." 
+           FontSize="16" FontFamily="Cooper Black" Foreground="Black" 
+           HorizontalAlignment="Left" VerticalAlignment="Top" 
+           TextWrapping="Wrap" Width="289" Margin="1234,548,0,0" 
+           Visibility="Hidden" Height="59"/>
+
+        <!-- Button voor sluiten van de uitleg (kruisje, standaard verborgen) -->
+        <Button x:Name="CloseInfoDefense" Content="X" FontFamily="Cooper Black" FontSize="11" Width="17" Height="17" 
+        HorizontalAlignment="Right" VerticalAlignment="Top" Background="Red" BorderBrush="Black" BorderThickness="2"
+        Margin="0,534,397,0" Visibility="Hidden" Click="CloseInfoDefense_Click"/>
+
+
+
     </Grid>
 
 </Page>

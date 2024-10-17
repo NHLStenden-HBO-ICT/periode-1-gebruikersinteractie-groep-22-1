@@ -145,5 +145,46 @@ namespace Slime_Busters
             Winkel.Content = new MenuPage();
             WinkelPageName.Visibility = Visibility.Hidden;
         }
+
+        // Event handler voor de InfoAttack-knop
+        private void InfoAttack_Click(object sender, RoutedEventArgs e)
+        {
+            // Maak de uitleg zichtbaar
+            CloseInfoAttack.Visibility = Visibility.Visible;
+            InfoAttackRectangle.Visibility = Visibility.Visible;
+            InfoAttackText.Visibility = Visibility.Visible;
+            
+
+        }
+
+        private void CloseInfoAttack_Click(object sender, RoutedEventArgs e)
+        {
+
+            CloseInfoAttack.Visibility = Visibility.Hidden;
+            InfoAttackRectangle.Visibility = Visibility.Hidden;
+            InfoAttackText.Visibility = Visibility.Hidden;
+
+        }
+        // Event handler voor de InfoDefense-knop
+        private void InfoDefense_Click(object sender, RoutedEventArgs e)
+        {
+            // Maak de uitleg zichtbaar
+            CloseInfoDefense.Visibility = Visibility.Visible;
+            InfoDefenseRectangle.Visibility = Visibility.Visible;
+            InfoDefenseText.Visibility = Visibility.Visible;
+
+
+        }
+
+        private void CloseInfoDefense_Click(object sender, RoutedEventArgs e)
+        {
+
+            CloseInfoDefense.Visibility = Visibility.Hidden;
+            InfoDefenseRectangle.Visibility = Visibility.Hidden;
+            InfoDefenseText.Visibility = Visibility.Hidden;
+
+        }
+
+
     }
 }
