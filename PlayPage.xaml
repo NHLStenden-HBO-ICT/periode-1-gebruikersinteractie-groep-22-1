@@ -8,9 +8,11 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="PlayPage">
 
-    <Grid Height="1080" Width="1920">
-        <Image Source="/main menu scenery.jpg" Stretch="Fill"/>
-        <TextBlock x:Name="textBlockPlayer1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1000, -700, 0, 90" FontSize="50" FontFamily="Arial"/>
-        <TextBlock x:Name="textBlockPlayer2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1000, -700, 0, 90" FontSize="50" FontFamily="Arial"/>
+    <Grid>
+        <Canvas Name="PlayerScreen" Background="LightGray" HorizontalAlignment="Left" Width="1920" KeyDown="KeyIsDownOne" KeyUp="KeyIsUpOne" Focusable="True">
+            <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"></Rectangle>
+            <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Blue" Canvas.Bottom="100" Canvas.Left="1720"></Rectangle>
+        </Canvas>
     </Grid>
 </Page>
+
