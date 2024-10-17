@@ -27,7 +27,7 @@ namespace Slime_Busters
         private DispatcherTimer gameTimer;
         private DispatcherTimer spawnTimer;
 
-        public PlayPage()
+        public PlayPage(string playerOneName, string playerTwoName)
         {
             InitializeComponent();
 
