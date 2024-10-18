@@ -239,5 +239,13 @@ namespace Slime_Busters
         }
 
         #endregion
+
+        #region Invisible Wall
+        private void CheckPlayerWallCollision()
+        {
+
+        }
+        #endregion
     }
 }
+

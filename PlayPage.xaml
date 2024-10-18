@@ -12,6 +12,7 @@
         <Canvas Name="PlayerScreen" Background="LightGray" HorizontalAlignment="Left" Width="1920" KeyDown="KeyIsDownOne" KeyUp="KeyIsUpOne" Focusable="True">
             <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"></Rectangle>
             <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Blue" Canvas.Bottom="100" Canvas.Left="1720"></Rectangle>
+            <Rectangle Name="InvisibleWall" Height="200" Width="1000" Fill="Green" Canvas.Bottom="100" Canvas.Left="450"></Rectangle>
         </Canvas>
     </Grid>
 </Page>
