@@ -27,85 +27,88 @@ namespace Slime_Busters
         public WinkelPage()
         {
             InitializeComponent();
+
+            // vv zet alle values op scherm goed neer
+            CoinsAmount.Text = Values.coins.ToString();
+            AttackProgressBar.Value = Values.playerDamageUpgrade;
+            DefenseProgressBar.Value = Values.playerHealthUpgrade;
+            if (Values.playerHealthUpgrade == DefenseProgressBar.Maximum)
+            {
+                DefenseButton.IsEnabled = false;
+                DefenseButton.Content = "Verdediging maximaal";
+            }
+            if (Values.playerDamageUpgrade == AttackProgressBar.Maximum)
+            {
+                AttackButton.IsEnabled = false;
+                AttackButton.Content = "Aanval maximaal";
+            }
         }
 
         private void AttackButton_Click(object sender, RoutedEventArgs e)
         {
             
-                // Controleren of er genoeg munten zijn om te upgraden
-                int currentCoins = int.Parse(CoinsAmount.Text);
-            if (currentCoins < 10)
+                // Controleren of er genoeg munten zijn om te upgraden  
+            if (Values.coins < 10)
             {
                 // Toon melding dat er te weinig munten zijn
                 ShowErrorMessage("Je hebt te weinig munten!");
             }
             else
             {
-                if (currentCoins >= 10)
+                if (Values.coins >= 10)
                 {
                     // Controleren of de ProgressBar nog niet maximaal is
                     if (AttackProgressBar.Value < AttackProgressBar.Maximum)
                     {
-                        // Verhoog de waarde van de ProgressBar
-                        AttackProgressBar.Value += 1;
-
-                        // Verminder munten met 10
-                        currentCoins -= 10;
-                        CoinsAmount.Text = currentCoins.ToString();
+                        Values.coins -= 10; // 10 munten minder
+                        CoinsAmount.Text = Values.coins.ToString(); // Zet coins neer in .xaml
+                        Values.playersDamage += 2; // Kogels doen x meer damage
+                        Values.playerDamageUpgrade++; // Registreert dat Damage is geupgrade
+                        AttackProgressBar.Value = Values.playerDamageUpgrade; // Zet upgrade level neer in .xaml
 
                         // Als de ProgressBar maximaal is, knop uitschakelen
-                        if (AttackProgressBar.Value == AttackProgressBar.Maximum)
+                        if (Values.playerDamageUpgrade == AttackProgressBar.Maximum)
                         {
                             AttackButton.IsEnabled = false;
                             AttackButton.Content = "Aanval maximaal";
                         }
                     }
                 }
-
-                }
-             
-            
+            }   
         }
 
         private void DefenseButton_Click(object sender, RoutedEventArgs e)
         {
             
                 // Controleren of er genoeg munten zijn om te upgraden
-                int currentCoins = int.Parse(CoinsAmount.Text);
-            if (currentCoins < 10)
+            if (Values.coins < 10)
             {
                 // Toon melding dat er te weinig munten zijn
                 ShowErrorMessage("Je hebt te weinig munten!");
             }
             else
             {
-                if (currentCoins >= 10)
+                if (Values.coins >= 10)
 
                 {
                     // Controleren of de ProgressBar nog niet maximaal is
                     if (DefenseProgressBar.Value < DefenseProgressBar.Maximum)
                     {
-                        // Verhoog de waarde van de ProgressBar
-                        DefenseProgressBar.Value += 1;
-
-                        // Verminder munten met 10
-                        currentCoins -= 10;
-                        CoinsAmount.Text = currentCoins.ToString();
+                        Values.coins -= 10; // 10 munten minder
+                        CoinsAmount.Text = Values.coins.ToString(); // Zet coins neer in .xaml
+                        Values.playersMaxHealth += 10; // Spelers krijgen 10 meer health
+                        Values.playerHealthUpgrade++; // Registreert dat Health is geupgrade
+                        DefenseProgressBar.Value = Values.playerHealthUpgrade; // Zet upgrade level neer in .xaml
 
                         // Als de ProgressBar maximaal is, knop uitschakelen
-                        if (DefenseProgressBar.Value == DefenseProgressBar.Maximum)
+                        if (Values.playerHealthUpgrade == DefenseProgressBar.Maximum)
                         {
                             DefenseButton.IsEnabled = false;
                             DefenseButton.Content = "Verdediging maximaal";
                         }
-               
-                       
                     }
-                
                 }
             }
-                
-            
         }
         private void ShowErrorMessage(string message)
         {

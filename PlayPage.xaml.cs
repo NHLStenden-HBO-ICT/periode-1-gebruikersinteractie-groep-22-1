@@ -23,9 +23,6 @@ namespace Slime_Busters
 
         private bool moveLeftOne, moveRightOne;
         private bool moveLeftTwo, moveRightTwo;
-        private double playerSpeed = 10;
-        private int slimeSpeed = 5;
-        private int slimeHealth = 10;
         private Dictionary<Rectangle, int> slimeHealthDictionary = new Dictionary<Rectangle, int>();
 
         private List<Rectangle> bullets = new List<Rectangle>();
@@ -62,14 +59,14 @@ namespace Slime_Busters
         private void GameTimer(object sender, EventArgs e)
         {
             if (moveLeftOne && Canvas.GetLeft(playerOne) > 0)
-                Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - playerSpeed);
+                Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - Values.playersMovementSpeed);
             if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth)
-                Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + playerSpeed);
+                Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + Values.playersMovementSpeed);
 
             if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0)
-                Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - playerSpeed);
+                Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - Values.playersMovementSpeed);
             if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth)
-                Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + playerSpeed);
+                Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + Values.playersMovementSpeed);
 
             ShootBullets();
             MoveSlime();
@@ -158,8 +155,8 @@ namespace Slime_Busters
 
         private void SpawnSlime(object sender, EventArgs e)
         {
-            SpawnMovingSlime(slimeSpeed);
-            SpawnMovingSlime(-slimeSpeed);
+            SpawnMovingSlime(Values.slimeSpeed);
+            SpawnMovingSlime(-Values.slimeSpeed);
         }
 
         private void SpawnMovingSlime(int slimeDirection)
@@ -179,7 +176,7 @@ namespace Slime_Busters
 
             PlayerScreen.Children.Add(slime);
             slime.Tag = slimeDirection;
-            slimeHealthDictionary[slime] = slimeHealth;
+            slimeHealthDictionary[slime] = Values.slimeHealth;
             slimes.Add(slime);
         }
 
@@ -218,12 +215,21 @@ namespace Slime_Busters
 
                     if (IsColliding(bullet, slime))
                     {
+                        // Verwijdert bullets
                         PlayerScreen.Children.Remove(bullet);
-                        PlayerScreen.Children.Remove(slime);
-
                         bullets.RemoveAt(i);
-                        slimeHealthDictionary.Remove(slime);
-                        slimes.RemoveAt(j);
+
+                        // Damage aan slime
+                        slimeHealthDictionary[slime] -= Values.playersDamage;
+
+                        // Check om te kijken of slime dood is
+                        if (slimeHealthDictionary[slime] <= 0)
+                        {
+                            PlayerScreen.Children.Remove(slime);
+                            slimeHealthDictionary.Remove(slime);
+                            slimes.RemoveAt(j);
+                            Values.coins += Values.slimeReward;
+                        }
                         break;
                     }
                 }
