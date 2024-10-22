@@ -17,8 +17,10 @@
             <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1749" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
 
             <!-- Players -->
-            <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"></Rectangle>
-            <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Blue" Canvas.Bottom="100" Canvas.Left="1720"></Rectangle>
+            <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"/>
+            <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Blue" Canvas.Bottom="100" Canvas.Left="1720"/>
+            <Rectangle Name="invisibleWall" Height="200" Width="1000" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="475"/>
+
             <Frame Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated"></Frame>
         </Canvas>
     </Grid>

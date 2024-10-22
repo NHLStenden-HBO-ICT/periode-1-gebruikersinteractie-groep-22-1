@@ -65,14 +65,18 @@ namespace Slime_Busters
 
         private void GameTimer(object sender, EventArgs e)
         {
-            if (moveLeftOne && Canvas.GetLeft(playerOne) > 0)
+            // Player One Movement
+            if (moveLeftOne && Canvas.GetLeft(playerOne) > 0 && !IsCollidingWithWall(playerOne, invisibleWall, -Values.playersMovementSpeed))
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - Values.playersMovementSpeed);
-            if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth)
+
+            if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerOne, invisibleWall, Values.playersMovementSpeed))
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + Values.playersMovementSpeed);
 
-            if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0)
+            // Player Two Movement
+            if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0 && !IsCollidingWithWall(playerTwo, invisibleWall, -Values.playersMovementSpeed))
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - Values.playersMovementSpeed);
-            if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth)
+
+            if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerTwo, invisibleWall, Values.playersMovementSpeed))
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + Values.playersMovementSpeed);
 
             ShootBullets();
@@ -290,6 +294,25 @@ namespace Slime_Busters
 
             return bulletRect.IntersectsWith(slimeRect);
         }
+
+        private bool IsCollidingWithWall(Rectangle player, Rectangle wall, double movement)
+        {
+            double playerLeft = Canvas.GetLeft(player) + movement;
+            double playerRight = playerLeft + player.Width;
+
+            double wallLeft = Canvas.GetLeft(wall);
+            double wallRight = wallLeft + wall.Width;
+
+            // Check if player's right side is colliding with the wall's left side
+            bool isCollidingRight = playerRight > wallLeft && playerLeft < wallLeft;
+
+            // Check if player's left side is colliding with the wall's right side
+            bool isCollidingLeft = playerLeft < wallRight && playerRight > wallRight;
+
+            // Player is colliding if either of these conditions is true
+            return isCollidingLeft || isCollidingRight;
+        }
+
 
         #endregion
 
