@@ -14,6 +14,7 @@
     <None Remove=".Schetsen6to13.png" />
     <None Remove="8-Bit Coin Sound Effect %28Copyright Free%29.wav" />
     <None Remove="achtergrond_winkel.png" />
+    <None Remove="Background Game.png" />
     <None Remove="main menu scenery.jpg" />
     <None Remove="Spelen Zwart.png" />
     <None Remove="Stoppen.png" />
@@ -27,6 +28,7 @@
     <Resource Include=".Schetsen6to13.png" />
     <Resource Include="8-Bit Coin Sound Effect (Copyright Free).wav" />
     <Resource Include="achtergrond_winkel.png" />
+    <Resource Include="Background Game.png" />
     <Resource Include="main menu scenery.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

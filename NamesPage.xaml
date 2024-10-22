@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Slime_Busters"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
+      x:Name="NamesPageName"
       Title="NamesPage">
 
     <Grid Height="1080" Width="1920">
@@ -17,8 +18,8 @@
         <Label x:Name="NameLabel2" Content="Speler 1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1000, -700, 0, 90" FontSize="50" FontFamily="Arial" />
         <Label x:Name="NameLabel1" Content="Speler 2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1000, -700, 0, 90" FontSize="50" FontFamily="Arial" />
 
-        <TextBox x:Name="namePlayer1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="Transparent" FontFamily="Arial" />
-        <TextBox x:Name="namePlayer2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="-1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="Transparent" FontFamily="Arial" />
+        <TextBox x:Name="namePlayer1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="LightGray" FontFamily="Arial" />
+        <TextBox x:Name="namePlayer2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="-1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="LightGray" FontFamily="Arial" />
 
         
         <!-- buttons for navigation -->
@@ -26,5 +27,7 @@
         <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="StartButtonClick" FontSize="36"/>
         
         <Frame Name="Names" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Names_Navigated"></Frame>
+        <Image Margin="668,295,0,180" Source="/.Schetsen6to1.png" Stretch="Fill"/>
+        <Image Margin="10,295,658,180" Source="/.Schetsen6to13.png" Stretch="Fill"/>
     </Grid>
 </Page>

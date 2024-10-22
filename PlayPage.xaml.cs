@@ -44,6 +44,8 @@ namespace Slime_Busters
         {
             InitializeComponent();
 
+            UpdatePlayerNames(playerOneName, playerTwoName);
+
             GameCoinsAmount.Text = Values.coins.ToString();
 
             gameTimer = new DispatcherTimer();
@@ -58,6 +60,12 @@ namespace Slime_Busters
             spawnTimer.Start();
 
             PlayerScreen.Focus();
+        }
+
+        private void UpdatePlayerNames(string player1Name, string player2Name)
+        {
+            Player1Label.Content = player1Name;
+            Player2Label.Content = player2Name;
         }
 
         #endregion
@@ -122,7 +130,7 @@ namespace Slime_Busters
                 moveRightOne = false;
 
             if (e.Key == Key.W)
-                MakeBullets(playerOne, 10, 780);
+                MakeBullets(playerOne, 10, 700);
 
             if (e.Key == Key.J)
                 moveLeftTwo = false;
@@ -130,7 +138,7 @@ namespace Slime_Busters
                 moveRightTwo = false;
 
             if (e.Key == Key.I)
-                MakeBullets(playerTwo, -10, 780);
+                MakeBullets(playerTwo, -10, 700);
         }
 
         #endregion
@@ -143,7 +151,7 @@ namespace Slime_Busters
             {
                 Width = 20,
                 Height = 5,
-                Fill = Brushes.Black
+                Fill = Brushes.Aqua
             };
 
             Canvas.SetTop(bullet, Canvas.GetBottom(player) + playerCenterHeight - (bullet.Height / 2));
