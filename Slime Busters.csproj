@@ -13,6 +13,7 @@
     <None Remove=".Schetsen6to1.png" />
     <None Remove=".Schetsen6to13.png" />
     <None Remove="achtergrond_winkel.png" />
+    <None Remove="Background Game.png" />
     <None Remove="main menu scenery.jpg" />
     <None Remove="Spelen Zwart.png" />
     <None Remove="Stoppen.png" />
@@ -25,6 +26,7 @@
     </Resource>
     <Resource Include=".Schetsen6to13.png" />
     <Resource Include="achtergrond_winkel.png" />
+    <Resource Include="Background Game.png" />
     <Resource Include="main menu scenery.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
