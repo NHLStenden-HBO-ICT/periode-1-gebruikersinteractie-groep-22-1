@@ -10,8 +10,16 @@
 
     <Grid>
         <Canvas Name="PlayerScreen" Background="LightGray" HorizontalAlignment="Left" Width="1920" KeyDown="KeyIsDownOne" KeyUp="KeyIsUpOne" Focusable="True">
+            <!-- Coins Meter -->
+            <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1398" Canvas.Top="36"/>
+            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1749" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
+
+            <!-- Players -->
             <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"></Rectangle>
             <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Blue" Canvas.Bottom="100" Canvas.Left="1720"></Rectangle>
+            <Frame Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated"></Frame>
         </Canvas>
     </Grid>
 </Page>

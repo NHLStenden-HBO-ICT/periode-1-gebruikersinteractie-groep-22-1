@@ -25,7 +25,7 @@
         <TextBlock x:Name="CoinsTextBlock" Text="Munten: "
                    HorizontalAlignment="Right" VerticalAlignment="Top"
                    FontSize="70" Margin="0,60,185,0" FontFamily="Cooper Black"/>
-        <TextBlock x:Name="CoinsAmount" Text="73" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="70" Margin="0,60,59,0" FontFamily="Cooper Black"/>
+        <TextBlock x:Name="CoinsAmount" Text="x" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="70" Margin="0,60,59,0" FontFamily="Cooper Black"/>
 
 
         <!-- Center Content: Upgrades Section -->

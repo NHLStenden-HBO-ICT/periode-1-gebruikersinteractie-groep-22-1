@@ -24,12 +24,14 @@ namespace Slime_Busters
         private bool moveLeftOne, moveRightOne;
         private bool moveLeftTwo, moveRightTwo;
         private Dictionary<Rectangle, int> slimeHealthDictionary = new Dictionary<Rectangle, int>();
+        private Dictionary<Rectangle, int> slimeRewardDictionary = new Dictionary<Rectangle, int>();
 
         private List<Rectangle> bullets = new List<Rectangle>();
         private List<Rectangle> slimes = new List<Rectangle>();
 
-        private DispatcherTimer gameTimer;
+        private DispatcherTimer r;
         private DispatcherTimer spawnTimer;
+        private DispatcherTimer gameTimer;
 
         #endregion
 
@@ -38,6 +40,8 @@ namespace Slime_Busters
         public PlayPage(string playerOneName, string playerTwoName)
         {
             InitializeComponent();
+
+            GameCoinsAmount.Text = Values.coins.ToString();
 
             gameTimer = new DispatcherTimer();
             gameTimer.Interval = TimeSpan.FromMilliseconds(1);
@@ -161,12 +165,31 @@ namespace Slime_Busters
 
         private void SpawnMovingSlime(int slimeDirection)
         {
-            Rectangle slime = new Rectangle
+            Rectangle slime;
+            int slimeHealth;
+            int slimeReward;
+            if (Values.slimeCounter % 3 == 0)
             {
-                Width = 50,
-                Height = 50,
-                Fill = Brushes.Green
-            };
+               slime = new Rectangle
+                {
+                    Width = 75,
+                    Height = 75,
+                    Fill = Brushes.Blue
+                };
+                slimeHealth = Values.slime2Health;
+                slimeReward = Values.slime2Reward;
+            }
+            else
+            {
+                slime = new Rectangle
+                {
+                    Width = 50,
+                    Height = 50,
+                    Fill = Brushes.Green
+                };
+                slimeHealth = Values.slime1Health;
+                slimeReward = Values.slime1Reward;
+            }
 
             double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
             double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
@@ -176,8 +199,10 @@ namespace Slime_Busters
 
             PlayerScreen.Children.Add(slime);
             slime.Tag = slimeDirection;
-            slimeHealthDictionary[slime] = Values.slimeHealth;
+            slimeHealthDictionary[slime] = slimeHealth;
+            slimeRewardDictionary[slime] = slimeReward;
             slimes.Add(slime);
+            Values.slimeCounter++;
         }
 
         private void MoveSlime()
@@ -194,6 +219,7 @@ namespace Slime_Busters
                     {
                         PlayerScreen.Children.Remove(slime);
                         slimeHealthDictionary.Remove(slime);
+                        slimeRewardDictionary.Remove(slime);
                         slimes.RemoveAt(i);
                     }
                 }
@@ -228,7 +254,17 @@ namespace Slime_Busters
                             PlayerScreen.Children.Remove(slime);
                             slimeHealthDictionary.Remove(slime);
                             slimes.RemoveAt(j);
-                            Values.coins += Values.slimeReward;
+                            Values.coins += slimeRewardDictionary[slime];
+                            slimeRewardDictionary.Remove(slime);
+                            Values.slimesKilled++;
+                            GameCoinsAmount.Text = Values.coins.ToString();
+
+                            if (Values.slimesKilled >= 10)
+                            {
+                               Play.Content = new WinkelPage();
+                                gameTimer.Stop();
+                                spawnTimer.Stop();
+                            }
                         }
                         break;
                     }
@@ -245,5 +281,9 @@ namespace Slime_Busters
         }
 
         #endregion
+        private void Play_Navigated(object sender, NavigationEventArgs e)
+        {
+            // Handle navigation events if needed
+        }
     }
 }

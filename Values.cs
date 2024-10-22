@@ -32,11 +32,15 @@ namespace Slime_Busters
 
         // Slimes
         public static int slimeCounter = 0; // Bijhouden hoeveel slimes er gespawned zijn
+        public static int slimesKilled = 0; // Aantal dode slimes
         public static int slimeSpeed = 5; // Snelheid waarmee slimes lopen
-        public static int slimeHealth = 10; // Health van slime
-        public static int slimeDamage = 15; // Damage van slime
-        public static int slimeReward = 10; // Geld dat speler krijgt wanneer slime dood gaat
 
+        public static int slime1Health = 10; // Health van slime
+        public static int slime1Damage = 15; // Damage van slime
+        public static int slime1Reward = 10; // Geld dat speler krijgt wanneer slime dood gaat
+        public static int slime2Health = 20; // Health van slime
+        public static int slime2Damage = 25; // Damage van slime
+        public static int slime2Reward = 20; // Geld dat speler krijgt wanneer slime dood gaat
         // Hoe gebruik ik dit?
         // Deze tab is om alle waarden te constateren in 1 script. Hierdoor staan alle waarden bij elkaar en kun je makkelijk
         // bepaalde waarden aanmaken zonder dat alles door elkaar staat. Om een bepaalde waarde aan te roepen doe je dit:
