@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
@@ -247,6 +248,8 @@ namespace Slime_Busters
 
         private void CheckBulletSlimeCollision()
         {
+            SoundPlayer soundPlayer = new SoundPlayer(@"F:\School\HBO\Periode 1\Game Interaction\8-Bit Coin Sound Effect (Copyright Free).wav");
+
             for (int i = bullets.Count - 1; i >= 0; i--)
             {
                 Rectangle bullet = bullets[i];
@@ -266,6 +269,8 @@ namespace Slime_Busters
                         // Check om te kijken of slime dood is
                         if (slimeHealthDictionary[slime] <= 0)
                         {
+                            soundPlayer.Play();
+
                             PlayerScreen.Children.Remove(slime);
                             slimeHealthDictionary.Remove(slime);
                             slimes.RemoveAt(j);
