@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,8 @@ namespace Slime_Busters
         {
             InitializeComponent();
 
+            UpdatePlayerNames(playerOneName, playerTwoName);
+
             GameCoinsAmount.Text = Values.coins.ToString();
             WaveAmount.Text = (Values.currentWave + 1).ToString();
             bulletsOneProgressBar.Value = Values.currentBulletsOne;
@@ -73,6 +76,12 @@ namespace Slime_Busters
             PlayerScreen.Focus();
         }
 
+        private void UpdatePlayerNames(string player1Name, string player2Name)
+        {
+            Player1Label.Content = player1Name;
+            Player2Label.Content = player2Name;
+        }
+
         #endregion
 
         #region Gameplay Loop
@@ -81,17 +90,29 @@ namespace Slime_Busters
         {
             // Player One Movement
             if (moveLeftOne && Canvas.GetLeft(playerOne) > 0 && !IsCollidingWithWall(playerOne, invisibleWall, -Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - Values.playersMovementSpeed);
+                Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) - Values.playersMovementSpeed); // Move image
+                }
 
             if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerOne, invisibleWall, Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + Values.playersMovementSpeed);
+                Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) + Values.playersMovementSpeed); // Move image
+                }
 
             // Player Two Movement
             if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0 && !IsCollidingWithWall(playerTwo, invisibleWall, -Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - Values.playersMovementSpeed);
+                Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) - Values.playersMovementSpeed); // Move image
+                }
 
             if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerTwo, invisibleWall, Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + Values.playersMovementSpeed);
+                Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) + Values.playersMovementSpeed); // Move image
+                }
 
             ShootBullets();
             MoveSlime();
@@ -156,7 +177,7 @@ namespace Slime_Busters
             {
                 Width = 20,
                 Height = 5,
-                Fill = Brushes.Black
+                Fill = Brushes.Aqua
             };
 
             Canvas.SetTop(bullet, Canvas.GetBottom(player) + playerCenterHeight - (bullet.Height / 2));
@@ -299,6 +320,8 @@ namespace Slime_Busters
 
         private void CheckBulletSlimeCollision()
         {
+            SoundPlayer soundPlayer = new SoundPlayer(@"F:\School\HBO\Periode 1\Game Interaction\8-Bit Coin Sound Effect (Copyright Free).wav");
+
             for (int i = bullets.Count - 1; i >= 0; i--)
             {
                 Rectangle bullet = bullets[i];
@@ -318,6 +341,8 @@ namespace Slime_Busters
                         // Check om te kijken of slime dood is
                         if (slimeHealthDictionary[slime] <= 0)
                         {
+                            soundPlayer.Play();
+
                             PlayerScreen.Children.Remove(slime);
                             slimeHealthDictionary.Remove(slime);
                             slimes.RemoveAt(j);

@@ -9,7 +9,9 @@
       Title="PlayPage">
 
     <Grid>
-        <Canvas Name="PlayerScreen" Background="LightGray" HorizontalAlignment="Left" Width="1920" KeyDown="KeyIsDownOne" KeyUp="KeyIsUpOne" Focusable="True">
+
+        <Canvas Name="PlayerScreen" Background="Transparent" HorizontalAlignment="Left" Width="1920" KeyDown="KeyIsDownOne" KeyUp="KeyIsUpOne" Focusable="True">
+            <Image Source="/Background Game.png" Width="1920"/>
 
             <!-- Coins Meter -->
             <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
@@ -45,11 +47,18 @@
             </ProgressBar>
 
             <!-- Players -->
-            <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"/>
-            <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Blue" Canvas.Bottom="100" Canvas.Left="1720"/>
-            <Rectangle Name="invisibleWall" Height="200" Width="1000" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="475"/>
 
-            <Frame Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated"></Frame>
+            <Rectangle x:Name="playerOne" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="150" Canvas.Left="100"/>
+            <Image x:Name="playerOneSprite" Source=".Schetsen6to13.png" Canvas.Left="-25" Canvas.Bottom="125" Height="232" Width="481"/>
+
+            <Rectangle x:Name="playerTwo" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="150" Canvas.Left="1720"/>
+            <Image x:Name="playerTwoSprite" Source=".Schetsen6to1.png" Canvas.Left="1472" Canvas.Bottom="125" Height="232" Width="481"/>
+            <Rectangle x:Name="invisibleWall" Height="200" Width="1252" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="334" HorizontalAlignment="Center" Canvas.Top="780" VerticalAlignment="Top"/>
+
+            <!-- Names -->
+            <Label x:Name="Player1Label" Background="Red" Content="" FontSize="50" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="20" Width="300" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Player2Label" Background="Blue" Content="" FontSize="50" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="1600" Width="300" HorizontalContentAlignment="Center"/>
+            <Frame x:Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated"/>
         </Canvas>
     </Grid>
 </Page>
