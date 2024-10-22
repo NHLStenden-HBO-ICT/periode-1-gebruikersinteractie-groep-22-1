@@ -11,6 +11,7 @@ namespace Slime_Busters
     {
         // Game
         public static int currentWave = 0; // Wordt 1 wanneer eerste spel begint, kan later gebruikt worden om meerdere levels te maken
+        public static int waveRequirement = 15; // Hoeveel nodig is voor wave
         public static int coins = 100; // Aantal munten dat de spelers hebben
 
         // Namen 
@@ -21,6 +22,9 @@ namespace Slime_Busters
         public static double playersMovementSpeed = 10; // Snelheid dat spelers lopen
         public static int playersMaxHealth = 100; // Maximale hp (aanpasbaar in winkel)
         public static int playersDamage = 5; // Damage per tick (aanpasbaar in winkel)
+        public static int maxBullets = 10; // Maximale aantal kogels
+        public static int currentBulletsOne = maxBullets; // Aanpassen tijdens spel
+        public static int currentBulletsTwo = maxBullets; // Aanpassen tijdens spel
 
         // Player upgrade
         public static int playerHealthUpgrade = 0; // Aantal health upgrades die geweest zijn
@@ -29,6 +33,7 @@ namespace Slime_Busters
         // Player game
         public static int playerOneCurrentHealth = playersMaxHealth; // Zet current health op max health, aanpassen tijdens spel
         public static int playerTwoCurrentHealth = playersMaxHealth; // Zet current health op max health, aanpassen tijdens spel
+
 
         // Slimes
         public static int slimeCounter = 0; // Bijhouden hoeveel slimes er gespawned zijn

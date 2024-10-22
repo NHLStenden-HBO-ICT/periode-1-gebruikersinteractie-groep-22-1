@@ -10,11 +10,39 @@
 
     <Grid>
         <Canvas Name="PlayerScreen" Background="LightGray" HorizontalAlignment="Left" Width="1920" KeyDown="KeyIsDownOne" KeyUp="KeyIsUpOne" Focusable="True">
+
             <!-- Coins Meter -->
             <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
                    HorizontalAlignment="Left" VerticalAlignment="Center"
                    FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1398" Canvas.Top="36"/>
             <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1749" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
+
+            <!-- Wave Counter-->
+            <TextBlock x:Name="WaveCounter" Text="Wave: "
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="859" Canvas.Top="36"/>
+            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1091" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
+
+            <ProgressBar x:Name="bulletsOneProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="10" Canvas.Top="400" >
+                <ProgressBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+            <ProgressBar x:Name="bulletsTwoProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="2" Background="#FFE6E6E6" Canvas.Left="1870" Canvas.Top="400" >
+                <ProgressBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
 
             <!-- Players -->
             <Rectangle Name="playerOne" Height="200" Width="100" Fill="Red" Canvas.Bottom="100" Canvas.Left="100"/>

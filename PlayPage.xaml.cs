@@ -32,6 +32,8 @@ namespace Slime_Busters
         private DispatcherTimer r;
         private DispatcherTimer spawnTimer;
         private DispatcherTimer gameTimer;
+        private DispatcherTimer bulletTimerOne;
+        private DispatcherTimer bulletTimerTwo;
 
         #endregion
 
@@ -44,6 +46,11 @@ namespace Slime_Busters
             InitializeComponent();
 
             GameCoinsAmount.Text = Values.coins.ToString();
+            WaveAmount.Text = (Values.currentWave + 1).ToString();
+            bulletsOneProgressBar.Value = Values.currentBulletsOne;
+            bulletsTwoProgressBar.Value = Values.currentBulletsTwo;
+            bulletsOneProgressBar.Maximum = Values.maxBullets;
+            bulletsTwoProgressBar.Maximum = Values.maxBullets;
 
             gameTimer = new DispatcherTimer();
             gameTimer.Interval = TimeSpan.FromMilliseconds(1);
@@ -53,8 +60,15 @@ namespace Slime_Busters
             spawnTimer = new DispatcherTimer();
             spawnTimer.Interval = TimeSpan.FromMilliseconds(500);
             spawnTimer.Tick += Waves;
-            // spawnTimer.Tick += SpawnSlime;
             spawnTimer.Start();
+
+            bulletTimerOne = new DispatcherTimer();
+            bulletTimerOne.Interval = TimeSpan.FromMilliseconds(500);
+            bulletTimerOne.Tick += BulletReloadOne;
+
+            bulletTimerTwo = new DispatcherTimer();
+            bulletTimerTwo.Interval = TimeSpan.FromMilliseconds(500);
+            bulletTimerTwo.Tick += BulletReloadTwo;
 
             PlayerScreen.Focus();
         }
@@ -109,7 +123,13 @@ namespace Slime_Busters
                 moveRightOne = false;
 
             if (e.Key == Key.W)
-                MakeBullets(playerOne, 10, 780);
+                if (Values.currentBulletsOne > 0)
+                {
+                    MakeBullets(playerOne, 10, 780);
+                    bulletTimerOne.Start();
+                    Values.currentBulletsOne--;
+                    bulletsOneProgressBar.Value = Values.currentBulletsOne;
+                }
 
             if (e.Key == Key.J)
                 moveLeftTwo = false;
@@ -117,7 +137,13 @@ namespace Slime_Busters
                 moveRightTwo = false;
 
             if (e.Key == Key.I)
-                MakeBullets(playerTwo, -10, 780);
+                if (Values.currentBulletsTwo > 0)
+                {
+                    MakeBullets(playerTwo, -10, 780);
+                    bulletTimerTwo.Start();
+                    Values.currentBulletsTwo--;
+                    bulletsTwoProgressBar.Value = Values.currentBulletsTwo;
+                }
         }
 
         #endregion
@@ -158,6 +184,32 @@ namespace Slime_Busters
                     }
                 }
             }
+        }
+
+        private void BulletReloadOne(object sender, EventArgs e)
+        {
+            if (Values.currentBulletsOne < Values.maxBullets)
+            {
+                Values.currentBulletsOne++;
+            }
+            else
+            {
+                bulletTimerOne.Stop();
+            }
+            bulletsOneProgressBar.Value = Values.currentBulletsOne;
+        }
+
+        private void BulletReloadTwo(object sender, EventArgs e)
+        {
+            if (Values.currentBulletsTwo < Values.maxBullets)
+            {
+                Values.currentBulletsTwo++;
+            }
+            else
+            {
+                bulletTimerTwo.Stop();
+            }
+            bulletsTwoProgressBar.Value = Values.currentBulletsTwo;
         }
 
         #endregion
@@ -274,11 +326,11 @@ namespace Slime_Busters
                             Values.slimesKilled++;
                             GameCoinsAmount.Text = Values.coins.ToString();
 
-                            if (Values.slimesKilled >= 15)
+                            if (Values.slimesKilled >= Values.waveRequirement)
                             {
-                               Play.Content = new WinkelPage();
-                                gameTimer.Stop();
-                                spawnTimer.Stop();
+                                Values.currentWave++;
+                                Values.waveRequirement += Values.waveRequirement;
+                                WaveAmount.Text = (Values.currentWave + 1).ToString();
                             }
                         }
                         break;
@@ -364,7 +416,7 @@ namespace Slime_Busters
             {
                 if (spawnSlime <= 50) // Kans dat slime spawnt
                 {
-                    if (spawnSlime <= 50) // Kans op slime 1
+                    if (typeSlime <= 50) // Kans op slime 1
                     {
                         slimeWidth = 50;
                         slimeHeight = 50;
@@ -382,10 +434,35 @@ namespace Slime_Busters
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
                     }
+                    slimeSpawning = true;
                 }
-                slimeSpawning = true;
             }
 
+            if (Values.currentWave == 2)
+            {
+                if (spawnSlime <= 80) // Kans dat slime spawnt
+                {
+                    if (typeSlime <= 20) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                    slimeSpawning = true;
+                }
+            }
 
             if (slimeSpawning == true)
             {
