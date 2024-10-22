@@ -10,7 +10,7 @@ namespace Slime_Busters
     class Values
     {
         // Game
-        public static int currentLevel = 0; // Wordt 1 wanneer eerste spel begint, kan later gebruikt worden om meerdere levels te maken
+        public static int currentWave = 0; // Wordt 1 wanneer eerste spel begint, kan later gebruikt worden om meerdere levels te maken
         public static int coins = 100; // Aantal munten dat de spelers hebben
 
         // Namen 

@@ -17,11 +17,15 @@
             <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1749" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
 
             <!-- Players -->
+
             <Rectangle Name="playerOne" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="100"></Rectangle>
             <Image Name="playerOneSprite" Source=".Schetsen6to13.png" Canvas.Left="-25" Canvas.Bottom="75" Height="232" Width="481"></Image>
 
             <Rectangle Name="playerTwo" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="1720"></Rectangle>
             <Image Name="playerTwoSprite" Source=".Schetsen6to1.png" Canvas.Left="1472" Canvas.Bottom="75" Height="232" Width="481"></Image>
+            <Rectangle Name="invisibleWall" Height="200" Width="1000" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="475"/>
+
+
             <Frame Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated"></Frame>
         </Canvas>
     </Grid>

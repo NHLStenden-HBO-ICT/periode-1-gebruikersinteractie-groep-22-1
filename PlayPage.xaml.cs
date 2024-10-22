@@ -35,6 +35,8 @@ namespace Slime_Busters
 
         #endregion
 
+        
+
         #region Constructor
 
         public PlayPage(string playerOneName, string playerTwoName)
@@ -49,8 +51,9 @@ namespace Slime_Busters
             gameTimer.Start();
 
             spawnTimer = new DispatcherTimer();
-            spawnTimer.Interval = TimeSpan.FromSeconds(5);
-            spawnTimer.Tick += SpawnSlime;
+            spawnTimer.Interval = TimeSpan.FromMilliseconds(500);
+            spawnTimer.Tick += Waves;
+            // spawnTimer.Tick += SpawnSlime;
             spawnTimer.Start();
 
             PlayerScreen.Focus();
@@ -62,27 +65,31 @@ namespace Slime_Busters
 
         private void GameTimer(object sender, EventArgs e)
         {
-            if (moveLeftOne && Canvas.GetLeft(playerOne) > 0)
-            {
+            // Player One Movement
+            if (moveLeftOne && Canvas.GetLeft(playerOne) > 0 && !IsCollidingWithWall(playerOne, invisibleWall, -Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - Values.playersMovementSpeed);
                 Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) - Values.playersMovementSpeed); // Move image
-            }
-            if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth)
-            {
+                }
+
+            if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerOne, invisibleWall, Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + Values.playersMovementSpeed);
                 Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) + Values.playersMovementSpeed); // Move image
-            }
+                }
 
-            if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0)
-            {
+            // Player Two Movement
+            if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0 && !IsCollidingWithWall(playerTwo, invisibleWall, -Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - Values.playersMovementSpeed);
                 Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) - Values.playersMovementSpeed); // Move image
-            }
-            if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth)
-            {
+                }
+
+            if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerTwo, invisibleWall, Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + Values.playersMovementSpeed);
                 Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) + Values.playersMovementSpeed); // Move image
-            }
+                }
 
             ShootBullets();
             MoveSlime();
@@ -171,12 +178,20 @@ namespace Slime_Busters
 
         private void SpawnSlime(object sender, EventArgs e)
         {
+            // ========================================
+            // || OUDE CODE, WORDT NIET MEER GEBRUIKT ||
+            // ========================================
+
             SpawnMovingSlime(Values.slimeSpeed);
             SpawnMovingSlime(-Values.slimeSpeed);
         }
 
         private void SpawnMovingSlime(int slimeDirection)
         {
+            // ========================================
+            // || OUDE CODE, WORDT NIET MEER GEBRUIKT ||
+            // ========================================
+
             Rectangle slime;
             int slimeHealth;
             int slimeReward;
@@ -271,7 +286,7 @@ namespace Slime_Busters
                             Values.slimesKilled++;
                             GameCoinsAmount.Text = Values.coins.ToString();
 
-                            if (Values.slimesKilled >= 10)
+                            if (Values.slimesKilled >= 15)
                             {
                                Play.Content = new WinkelPage();
                                 gameTimer.Stop();
@@ -292,7 +307,129 @@ namespace Slime_Busters
             return bulletRect.IntersectsWith(slimeRect);
         }
 
+        private bool IsCollidingWithWall(Rectangle player, Rectangle wall, double movement)
+        {
+            double playerLeft = Canvas.GetLeft(player) + movement;
+            double playerRight = playerLeft + player.Width;
+
+            double wallLeft = Canvas.GetLeft(wall);
+            double wallRight = wallLeft + wall.Width;
+
+            // Check if player's right side is colliding with the wall's left side
+            bool isCollidingRight = playerRight > wallLeft && playerLeft < wallLeft;
+
+            // Check if player's left side is colliding with the wall's right side
+            bool isCollidingLeft = playerLeft < wallRight && playerRight > wallRight;
+
+            // Player is colliding if either of these conditions is true
+            return isCollidingLeft || isCollidingRight;
+        }
+
+
         #endregion
+
+        private void Waves(object sender, EventArgs e)
+        {
+            #region Slime spawn inits
+            Random random = new Random();
+            int spawnSlime = random.Next(100);
+            int typeSlime = random.Next(100);
+            int directionSlime = random.Next(2);
+
+            bool slimeSpawning = false;
+            Rectangle slime;
+            int slimeWidth = 10;
+            int slimeHeight = 10;
+            Brush slimeFill = Brushes.Black;
+            int slimeHealth = 10;
+            int slimeDamage = 10;
+            int slimeReward = 10;
+            #endregion
+
+            if (Values.currentWave == 0)
+            {
+                if (spawnSlime <= 30) // Kans dat slime spawnt
+                {
+                    if (typeSlime <= 70) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                    slimeSpawning = true;
+                }
+            }
+
+            if (Values.currentWave == 1)
+            {
+                if (spawnSlime <= 50) // Kans dat slime spawnt
+                {
+                    if (spawnSlime <= 50) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                }
+                slimeSpawning = true;
+            }
+
+
+            if (slimeSpawning == true)
+            {
+                slime = new Rectangle
+                {
+                    Width = slimeWidth,
+                    Height = slimeHeight,
+                    Fill = slimeFill
+                };
+
+                if (directionSlime == 0)
+                {
+                    slime.Tag = Values.slimeSpeed;
+                }
+                else
+                {
+                    slime.Tag = -Values.slimeSpeed;
+                }
+
+                double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
+                double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
+                Canvas.SetLeft(slime, centerX);
+                Canvas.SetTop(slime, centerY);
+                PlayerScreen.Children.Add(slime);
+                slimes.Add(slime);
+
+                slimeHealthDictionary[slime] = slimeHealth;
+                slimeRewardDictionary[slime] = slimeReward;
+                Values.slimeCounter++;
+            }
+        }
+
         private void Play_Navigated(object sender, NavigationEventArgs e)
         {
             // Handle navigation events if needed
