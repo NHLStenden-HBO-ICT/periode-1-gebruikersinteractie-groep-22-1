@@ -35,6 +35,8 @@ namespace Slime_Busters
 
         #endregion
 
+        
+
         #region Constructor
 
         public PlayPage(string playerOneName, string playerTwoName)
@@ -49,8 +51,9 @@ namespace Slime_Busters
             gameTimer.Start();
 
             spawnTimer = new DispatcherTimer();
-            spawnTimer.Interval = TimeSpan.FromSeconds(5);
-            spawnTimer.Tick += SpawnSlime;
+            spawnTimer.Interval = TimeSpan.FromMilliseconds(500);
+            spawnTimer.Tick += Waves;
+            // spawnTimer.Tick += SpawnSlime;
             spawnTimer.Start();
 
             PlayerScreen.Focus();
@@ -159,12 +162,20 @@ namespace Slime_Busters
 
         private void SpawnSlime(object sender, EventArgs e)
         {
+            // ========================================
+            // || OUDE CODE, WORDT NIET MEER GEBRUIKT ||
+            // ========================================
+
             SpawnMovingSlime(Values.slimeSpeed);
             SpawnMovingSlime(-Values.slimeSpeed);
         }
 
         private void SpawnMovingSlime(int slimeDirection)
         {
+            // ========================================
+            // || OUDE CODE, WORDT NIET MEER GEBRUIKT ||
+            // ========================================
+
             Rectangle slime;
             int slimeHealth;
             int slimeReward;
@@ -259,7 +270,7 @@ namespace Slime_Busters
                             Values.slimesKilled++;
                             GameCoinsAmount.Text = Values.coins.ToString();
 
-                            if (Values.slimesKilled >= 10)
+                            if (Values.slimesKilled >= 15)
                             {
                                Play.Content = new WinkelPage();
                                 gameTimer.Stop();
@@ -281,6 +292,109 @@ namespace Slime_Busters
         }
 
         #endregion
+
+        private void Waves(object sender, EventArgs e)
+        {
+            #region Slime spawn inits
+            Random random = new Random();
+            int spawnSlime = random.Next(100);
+            int typeSlime = random.Next(100);
+            int directionSlime = random.Next(2);
+
+            bool slimeSpawning = false;
+            Rectangle slime;
+            int slimeWidth = 10;
+            int slimeHeight = 10;
+            Brush slimeFill = Brushes.Black;
+            int slimeHealth = 10;
+            int slimeDamage = 10;
+            int slimeReward = 10;
+            #endregion
+
+            if (Values.currentWave == 0)
+            {
+                if (spawnSlime <= 30) // Kans dat slime spawnt
+                {
+                    if (typeSlime <= 70) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                    slimeSpawning = true;
+                }
+            }
+
+            if (Values.currentWave == 1)
+            {
+                if (spawnSlime <= 50) // Kans dat slime spawnt
+                {
+                    if (spawnSlime <= 50) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                }
+                slimeSpawning = true;
+            }
+
+
+            if (slimeSpawning == true)
+            {
+                slime = new Rectangle
+                {
+                    Width = slimeWidth,
+                    Height = slimeHeight,
+                    Fill = slimeFill
+                };
+
+                if (directionSlime == 0)
+                {
+                    slime.Tag = Values.slimeSpeed;
+                }
+                else
+                {
+                    slime.Tag = -Values.slimeSpeed;
+                }
+
+                double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
+                double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
+                Canvas.SetLeft(slime, centerX);
+                Canvas.SetTop(slime, centerY);
+                PlayerScreen.Children.Add(slime);
+                slimes.Add(slime);
+
+                slimeHealthDictionary[slime] = slimeHealth;
+                slimeRewardDictionary[slime] = slimeReward;
+                Values.slimeCounter++;
+            }
+        }
+
         private void Play_Navigated(object sender, NavigationEventArgs e)
         {
             // Handle navigation events if needed
