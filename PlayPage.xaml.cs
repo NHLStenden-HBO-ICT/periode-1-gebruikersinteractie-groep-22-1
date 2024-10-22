@@ -68,17 +68,29 @@ namespace Slime_Busters
         {
             // Player One Movement
             if (moveLeftOne && Canvas.GetLeft(playerOne) > 0 && !IsCollidingWithWall(playerOne, invisibleWall, -Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - Values.playersMovementSpeed);
+                Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) - Values.playersMovementSpeed); // Move image
+                }
 
             if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerOne, invisibleWall, Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + Values.playersMovementSpeed);
+                Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) + Values.playersMovementSpeed); // Move image
+                }
 
             // Player Two Movement
             if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0 && !IsCollidingWithWall(playerTwo, invisibleWall, -Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - Values.playersMovementSpeed);
+                Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) - Values.playersMovementSpeed); // Move image
+                }
 
             if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth && !IsCollidingWithWall(playerTwo, invisibleWall, Values.playersMovementSpeed))
+                {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + Values.playersMovementSpeed);
+                Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) + Values.playersMovementSpeed); // Move image
+                }
 
             ShootBullets();
             MoveSlime();
