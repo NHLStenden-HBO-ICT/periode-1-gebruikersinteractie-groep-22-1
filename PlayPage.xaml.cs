@@ -63,14 +63,26 @@ namespace Slime_Busters
         private void GameTimer(object sender, EventArgs e)
         {
             if (moveLeftOne && Canvas.GetLeft(playerOne) > 0)
+            {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) - Values.playersMovementSpeed);
+                Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) - Values.playersMovementSpeed); // Move image
+            }
             if (moveRightOne && Canvas.GetLeft(playerOne) + playerOne.Width < PlayerScreen.ActualWidth)
+            {
                 Canvas.SetLeft(playerOne, Canvas.GetLeft(playerOne) + Values.playersMovementSpeed);
+                Canvas.SetLeft(playerOneSprite, Canvas.GetLeft(playerOneSprite) + Values.playersMovementSpeed); // Move image
+            }
 
             if (moveLeftTwo && Canvas.GetLeft(playerTwo) > 0)
+            {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) - Values.playersMovementSpeed);
+                Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) - Values.playersMovementSpeed); // Move image
+            }
             if (moveRightTwo && Canvas.GetLeft(playerTwo) + playerTwo.Width < PlayerScreen.ActualWidth)
+            {
                 Canvas.SetLeft(playerTwo, Canvas.GetLeft(playerTwo) + Values.playersMovementSpeed);
+                Canvas.SetLeft(playerTwoSprite, Canvas.GetLeft(playerTwoSprite) + Values.playersMovementSpeed); // Move image
+            }
 
             ShootBullets();
             MoveSlime();
