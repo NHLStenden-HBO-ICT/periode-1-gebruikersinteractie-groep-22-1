@@ -146,7 +146,7 @@ namespace Slime_Busters
             if (e.Key == Key.W)
                 if (Values.currentBulletsOne > 0)
                 {
-                    MakeBullets(playerOne, 10, 780);
+                    MakeBullets(playerOne, 10, 700);
                     bulletTimerOne.Start();
                     Values.currentBulletsOne--;
                     bulletsOneProgressBar.Value = Values.currentBulletsOne;
@@ -160,7 +160,7 @@ namespace Slime_Busters
             if (e.Key == Key.I)
                 if (Values.currentBulletsTwo > 0)
                 {
-                    MakeBullets(playerTwo, -10, 780);
+                    MakeBullets(playerTwo, -10, 700);
                     bulletTimerTwo.Start();
                     Values.currentBulletsTwo--;
                     bulletsTwoProgressBar.Value = Values.currentBulletsTwo;
