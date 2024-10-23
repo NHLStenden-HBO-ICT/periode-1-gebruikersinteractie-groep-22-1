@@ -13,20 +13,36 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 using Slime_Busters;
 
 namespace Slime_Busters_Menu
 {
     public partial class MenuPage : Page
     {
+
+        public static bool _isMusicPlaying = false;
+
         public MenuPage()
         {
             InitializeComponent();
+            if (!_isMusicPlaying)
+            {
+                PlayBackgroundMusic();
+                _isMusicPlaying = true;
+            }
+        }
+        public void PlayBackgroundMusic()
+        {
+            BackgroundMusic.Source = new Uri(@"F:\School\HBO\Periode 1\Game Interaction\Little Samson (NES) Music - Title Theme.wav", UriKind.RelativeOrAbsolute);
+            BackgroundMusic.Volume = 1.5; // Set volume as needed
+            BackgroundMusic.Play();
         }
 
         private void SpelenButtonClick(object sender, RoutedEventArgs e)
         {
             Menu.Content = new NamesPage();
+
         }
 
         private void WinkelButtonClick(object sender, RoutedEventArgs e)
@@ -38,5 +54,5 @@ namespace Slime_Busters_Menu
         {
             Application.Current.Shutdown();
         }
-    }
+    }   
 }

@@ -39,6 +39,7 @@ namespace Slime_Busters
             Values.playerTwoName = namePlayer2.Text;
 
             NavigationService.Navigate(new PlayPage(Values.playerOneName, Values.playerTwoName));
+
         }
 
         private void Names_Navigated(object sender, NavigationEventArgs e)

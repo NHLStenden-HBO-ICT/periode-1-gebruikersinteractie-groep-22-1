@@ -45,6 +45,8 @@ namespace Slime_Busters
         public PlayPage(string playerOneName, string playerTwoName)
         {
             InitializeComponent();
+            
+
 
             UpdatePlayerNames(playerOneName, playerTwoName);
 
@@ -76,7 +78,8 @@ namespace Slime_Busters
             PlayerScreen.Focus();
         }
 
-        private void UpdatePlayerNames(string player1Name, string player2Name)
+
+    private void UpdatePlayerNames(string player1Name, string player2Name)
         {
             Player1Label.Content = player1Name;
             Player2Label.Content = player2Name;
@@ -318,50 +321,81 @@ namespace Slime_Busters
 
         #region Collision Detection
 
-        private void CheckBulletSlimeCollision()
+private void CheckBulletSlimeCollision()
+{
+    SoundPlayer soundPlayer = new SoundPlayer(@"F:\School\HBO\Periode 1\Game Interaction\8-Bit Coin Sound Effect (Copyright Free).wav");
+
+    for (int i = bullets.Count - 1; i >= 0; i--)
+    {
+        Rectangle bullet = bullets[i];
+        for (int j = slimes.Count - 1; j >= 0; j--)
         {
-            SoundPlayer soundPlayer = new SoundPlayer(@"F:\School\HBO\Periode 1\Game Interaction\8-Bit Coin Sound Effect (Copyright Free).wav");
+            Rectangle slime = slimes[j];
 
-            for (int i = bullets.Count - 1; i >= 0; i--)
+            if (IsColliding(bullet, slime))
             {
-                Rectangle bullet = bullets[i];
-                for (int j = slimes.Count - 1; j >= 0; j--)
+                // Remove bullet
+                PlayerScreen.Children.Remove(bullet);
+                bullets.RemoveAt(i);
+
+                // Damage to slime
+                slimeHealthDictionary[slime] -= Values.playersDamage;
+
+                // Check if slime is dead
+                if (slimeHealthDictionary[slime] <= 0)
                 {
-                    Rectangle slime = slimes[j];
+                    soundPlayer.Play();
 
-                    if (IsColliding(bullet, slime))
+                    PlayerScreen.Children.Remove(slime);
+                    slimeHealthDictionary.Remove(slime);
+                    slimes.RemoveAt(j);
+                    Values.coins += slimeRewardDictionary[slime];
+                    ShowCoinPopup(slimeRewardDictionary[slime], new Point(Canvas.GetLeft(slime), Canvas.GetTop(slime))); // Show popup
+                    slimeRewardDictionary.Remove(slime);
+                    Values.slimesKilled++;
+                    GameCoinsAmount.Text = Values.coins.ToString();
+
+                    if (Values.slimesKilled >= Values.waveRequirement)
                     {
-                        // Verwijdert bullets
-                        PlayerScreen.Children.Remove(bullet);
-                        bullets.RemoveAt(i);
-
-                        // Damage aan slime
-                        slimeHealthDictionary[slime] -= Values.playersDamage;
-
-                        // Check om te kijken of slime dood is
-                        if (slimeHealthDictionary[slime] <= 0)
-                        {
-                            soundPlayer.Play();
-
-                            PlayerScreen.Children.Remove(slime);
-                            slimeHealthDictionary.Remove(slime);
-                            slimes.RemoveAt(j);
-                            Values.coins += slimeRewardDictionary[slime];
-                            slimeRewardDictionary.Remove(slime);
-                            Values.slimesKilled++;
-                            GameCoinsAmount.Text = Values.coins.ToString();
-
-                            if (Values.slimesKilled >= Values.waveRequirement)
-                            {
-                                Values.currentWave++;
-                                Values.waveRequirement += Values.waveRequirement;
-                                WaveAmount.Text = (Values.currentWave + 1).ToString();
-                            }
-                        }
-                        break;
+                        Values.currentWave++;
+                        Values.waveRequirement += Values.waveRequirement;
+                        WaveAmount.Text = (Values.currentWave + 1).ToString();
                     }
                 }
+                break;
             }
+        }
+    }
+}
+        private async void ShowCoinPopup(int coins, Point position)
+        {
+            string coinText = coins == 1 ? "1 munt" : $"{coins} munten";
+
+            TextBlock coinPopup = new TextBlock
+            {
+                Text = $"+{coinText}",
+                Foreground = Brushes.Gold,
+                FontSize = 24,
+                Opacity = 1
+            };
+
+            // Set the position of the popup
+            Canvas.SetLeft(coinPopup, position.X);
+            Canvas.SetTop(coinPopup, position.Y);
+
+            PlayerScreen.Children.Add(coinPopup);
+
+            // Animate the popup (optional)
+            double originalY = position.Y;
+            for (int i = 0; i < 20; i++)
+            {
+                await Task.Delay(50); // Delay for a brief moment
+                Canvas.SetTop(coinPopup, originalY - i * 2); // Move upwards
+                coinPopup.Opacity -= 0.05; // Fade out
+            }
+
+            // Remove the popup
+            PlayerScreen.Children.Remove(coinPopup);
         }
 
         private bool IsColliding(Rectangle bullet, Rectangle slime)
@@ -525,4 +559,6 @@ namespace Slime_Busters
             // Handle navigation events if needed
         }
     }
+
+
 }

@@ -12,7 +12,7 @@ namespace Slime_Busters
         // Game
         public static int currentWave = 0; // Wordt 1 wanneer eerste spel begint, kan later gebruikt worden om meerdere levels te maken
         public static int waveRequirement = 15; // Hoeveel nodig is voor wave
-        public static int coins = 100; // Aantal munten dat de spelers hebben
+        public static int coins = 0; // Aantal munten dat de spelers hebben
 
         // Namen 
         public static string playerOneName = "blank"; // Aanpassen op naam scherm
@@ -42,10 +42,10 @@ namespace Slime_Busters
 
         public static int slime1Health = 10; // Health van slime
         public static int slime1Damage = 15; // Damage van slime
-        public static int slime1Reward = 10; // Geld dat speler krijgt wanneer slime dood gaat
+        public static int slime1Reward = 1; // Geld dat speler krijgt wanneer slime dood gaat
         public static int slime2Health = 20; // Health van slime
         public static int slime2Damage = 25; // Damage van slime
-        public static int slime2Reward = 20; // Geld dat speler krijgt wanneer slime dood gaat
+        public static int slime2Reward = 2; // Geld dat speler krijgt wanneer slime dood gaat
         // Hoe gebruik ik dit?
         // Deze tab is om alle waarden te constateren in 1 script. Hierdoor staan alle waarden bij elkaar en kun je makkelijk
         // bepaalde waarden aanmaken zonder dat alles door elkaar staat. Om een bepaalde waarde aan te roepen doe je dit:

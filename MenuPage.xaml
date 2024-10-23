@@ -56,5 +56,6 @@
             <ContentControl Name="MainContentControl"/>
         </Grid>
         <Frame Name="Menu" NavigationUIVisibility="Hidden" Height="1080px" Width="1920px"></Frame>
+        <MediaElement Name="BackgroundMusic" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
     </Grid>
 </Page>
