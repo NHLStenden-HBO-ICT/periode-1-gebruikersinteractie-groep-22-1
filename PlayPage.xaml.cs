@@ -323,7 +323,7 @@ namespace Slime_Busters
 
 private void CheckBulletSlimeCollision()
 {
-    SoundPlayer soundPlayer = new SoundPlayer(@"F:\School\HBO\Periode 1\Game Interaction\8-Bit Coin Sound Effect (Copyright Free).wav");
+    SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\danie\source\repos\1-22-1-d\8-Bit Coin Sound Effect (Copyright Free).wav");
 
     for (int i = bullets.Count - 1; i >= 0; i--)
     {
@@ -425,6 +425,21 @@ private void CheckBulletSlimeCollision()
         }
 
 
+        private bool IsCollidingWithSlime(Rectangle player, Rectangle slime, double movement)
+        {
+            double playerLeft = Canvas.GetLeft(player) + movement;
+            double playerRight = playerLeft + player.Width;
+
+            double slimeLeft = Canvas.GetLeft(slime);
+            double slimeRight = slimeLeft + slime.Width;
+
+            bool isCollidingRight = playerRight > slimeLeft && playerLeft < slimeRight;
+            bool isCollidingLeft = playerLeft < slimeRight && playerRight > slimeRight;
+
+            return isCollidingLeft || isCollidingRight;
+
+        }
+
         #endregion
 
         private void Waves(object sender, EventArgs e)
@@ -449,7 +464,7 @@ private void CheckBulletSlimeCollision()
             {
                 if (spawnSlime <= 30) // Kans dat slime spawnt
                 {
-                    if (typeSlime <= 70) // Kans op slime 1
+                    if (typeSlime <= 100) // Kans op slime 1
                     {
                         slimeWidth = 50;
                         slimeHeight = 50;
@@ -475,7 +490,7 @@ private void CheckBulletSlimeCollision()
             {
                 if (spawnSlime <= 50) // Kans dat slime spawnt
                 {
-                    if (typeSlime <= 50) // Kans op slime 1
+                    if (typeSlime <= 90) // Kans op slime 1
                     {
                         slimeWidth = 50;
                         slimeHeight = 50;
@@ -499,9 +514,87 @@ private void CheckBulletSlimeCollision()
 
             if (Values.currentWave == 2)
             {
+                if (spawnSlime <= 60) // Kans dat slime spawnt
+                {
+                    if (typeSlime <= 70) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                    slimeSpawning = true;
+                }
+            }
+
+            if (Values.currentWave == 3)
+            {
                 if (spawnSlime <= 80) // Kans dat slime spawnt
                 {
-                    if (typeSlime <= 20) // Kans op slime 1
+                    if (typeSlime <= 50) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                    slimeSpawning = true;
+                }
+            }
+
+            if (Values.currentWave == 4)
+            {
+                if (spawnSlime <= 95) // Kans dat slime spawnt
+                {
+                    if (typeSlime <= 25) // Kans op slime 1
+                    {
+                        slimeWidth = 50;
+                        slimeHeight = 50;
+                        slimeFill = Brushes.Green;
+                        slimeHealth = Values.slime1Health;
+                        slimeDamage = Values.slime1Damage;
+                        slimeReward = Values.slime1Reward;
+                    }
+                    else
+                    {
+                        slimeWidth = 75;
+                        slimeHeight = 75;
+                        slimeFill = Brushes.Blue;
+                        slimeHealth = Values.slime2Health;
+                        slimeDamage = Values.slime2Damage;
+                        slimeReward = Values.slime2Reward;
+                    }
+                    slimeSpawning = true;
+                }
+            }
+
+            if (Values.currentWave == 5)
+            {
+                if (spawnSlime <= 100) // Kans dat slime spawnt
+                {
+                    if (typeSlime <= 0) // Kans op slime 1
                     {
                         slimeWidth = 50;
                         slimeHeight = 50;

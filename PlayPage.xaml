@@ -15,17 +15,17 @@
 
             <!-- Coins Meter -->
             <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
-                   HorizontalAlignment="Left" VerticalAlignment="Center"
-                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1398" Canvas.Top="36"/>
-            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1749" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
+                   HorizontalAlignment="Left" VerticalAlignment="Top"
+                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1401"/>
+            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1770" RenderTransformOrigin="-0.971,0.617"/>
 
             <!-- Wave Counter-->
             <TextBlock x:Name="WaveCounter" Text="Wave: "
-                   HorizontalAlignment="Left" VerticalAlignment="Center"
-                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="859" Canvas.Top="36"/>
-            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1091" Canvas.Top="36" RenderTransformOrigin="-0.971,0.617"/>
+                   HorizontalAlignment="Left" VerticalAlignment="Top"
+                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="844"/>
+            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="70" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="80" RenderTransformOrigin="-0.971,0.617"/>
 
-            <ProgressBar x:Name="bulletsOneProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="10" Canvas.Top="400" >
+            <ProgressBar x:Name="bulletsOneProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="10" Canvas.Top="400" BorderThickness="7" Foreground="Aqua">
                 <ProgressBar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -35,7 +35,7 @@
                     </TransformGroup>
                 </ProgressBar.RenderTransform>
             </ProgressBar>
-            <ProgressBar x:Name="bulletsTwoProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="2" Background="#FFE6E6E6" Canvas.Left="1870" Canvas.Top="400" >
+            <ProgressBar x:Name="bulletsTwoProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="2" Background="#FFE6E6E6" Canvas.Left="1870" Canvas.Top="400" BorderThickness="7" Foreground="Aqua">
                 <ProgressBar.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -53,6 +53,7 @@
 
             <Rectangle x:Name="playerTwo" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="150" Canvas.Left="1720"/>
             <Image x:Name="playerTwoSprite" Source=".Schetsen6to1.png" Canvas.Left="1472" Canvas.Bottom="125" Height="232" Width="481"/>
+
             <Rectangle x:Name="invisibleWall" Height="200" Width="1252" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="334" HorizontalAlignment="Center" Canvas.Top="780" VerticalAlignment="Top"/>
 
             <!-- Names -->
