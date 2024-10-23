@@ -56,9 +56,9 @@
             <Rectangle x:Name="invisibleWall" Height="200" Width="1252" Fill="Transparent" Canvas.Bottom="100" Canvas.Left="334" HorizontalAlignment="Center" Canvas.Top="780" VerticalAlignment="Top"/>
 
             <!-- Names -->
-            <Label x:Name="Player1Label" Background="Red" Content="" FontSize="50" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="20" Width="300" HorizontalContentAlignment="Center"/>
-            <Label x:Name="Player2Label" Background="Blue" Content="" FontSize="50" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="1600" Width="300" HorizontalContentAlignment="Center"/>
-            <Frame x:Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated"/>
+            <Label x:Name="Player1Label" Background="Transparent" Content="" FontSize="25" FontWeight="Bold" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="55" Width="273" HorizontalContentAlignment="Center" Canvas.Top="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="43"/>
+            <Label x:Name="Player2Label" Background="Transparent" Content="" FontSize="25" FontWeight="Bold" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="1585" Width="273" HorizontalContentAlignment="Center" Canvas.Top="450" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center"/>
+            <Frame x:Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated" Canvas.Left="-25" Canvas.Top="10"/>
         </Canvas>
     </Grid>
 </Page>
