@@ -25,7 +25,7 @@ namespace Slime_Busters
         public static double playersMovementSpeed = 10; // Snelheid dat spelers lopen
         public static int playersMaxHealth = 10; // Maximale hp (aanpasbaar in winkel)
         public static int playersDamage = 5; // Damage per tick (aanpasbaar in winkel)
-        public static int maxBullets = 10; // Maximale aantal kogels
+        public static int maxBullets = 6; // Maximale aantal kogels
         public static int currentBulletsOne = maxBullets; // Aanpassen tijdens spel
         public static int currentBulletsTwo = maxBullets; // Aanpassen tijdens spel
 

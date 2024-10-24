@@ -73,11 +73,11 @@ namespace Slime_Busters
             spawnTimer.Start();
 
             bulletTimerOne = new DispatcherTimer();
-            bulletTimerOne.Interval = TimeSpan.FromMilliseconds(500);
+            bulletTimerOne.Interval = TimeSpan.FromMilliseconds(750);
             bulletTimerOne.Tick += BulletReloadOne;
 
             bulletTimerTwo = new DispatcherTimer();
-            bulletTimerTwo.Interval = TimeSpan.FromMilliseconds(500);
+            bulletTimerTwo.Interval = TimeSpan.FromMilliseconds(750);
             bulletTimerTwo.Tick += BulletReloadTwo;
 
             PlayerScreen.Focus();

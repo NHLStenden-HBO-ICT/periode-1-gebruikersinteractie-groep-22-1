@@ -16,14 +16,14 @@
             <!-- Coins Meter -->
             <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1401"/>
-            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1770" RenderTransformOrigin="-0.971,0.617"/>
+                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1400"/>
+            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="1770" RenderTransformOrigin="-0.971,0.617"/>
 
             <!-- Wave Counter-->
             <TextBlock x:Name="WaveCounter" Text="Wave: "
                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="844"/>
-            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="70" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="80" RenderTransformOrigin="-0.971,0.617"/>
+                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="844"/>
+            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="80" RenderTransformOrigin="-0.971,0.617"/>
 
             <ProgressBar x:Name="bulletsOneProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="10" Canvas.Top="400" BorderThickness="7" Foreground="Aqua">
                 <ProgressBar.RenderTransform>
