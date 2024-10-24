@@ -22,6 +22,8 @@ namespace Slime_Busters
     public partial class NamesPage : Page
     {
         private Dictionary<string, string> playerNames = new Dictionary<string, string>();
+       
+
 
         public NamesPage()
         {
@@ -37,6 +39,7 @@ namespace Slime_Busters
         {
             Values.playerOneName = namePlayer1.Text;
             Values.playerTwoName = namePlayer2.Text;
+            Values.enteredNames = true;
 
             NavigationService.Navigate(new PlayPage(Values.playerOneName, Values.playerTwoName));
 

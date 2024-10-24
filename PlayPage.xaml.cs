@@ -25,6 +25,7 @@ namespace Slime_Busters
         private bool moveLeftOne, moveRightOne;
         private bool moveLeftTwo, moveRightTwo;
         private Dictionary<Rectangle, int> slimeHealthDictionary = new Dictionary<Rectangle, int>();
+        private Dictionary<Rectangle, int> slimeDamageDictionary = new Dictionary<Rectangle, int>();
         private Dictionary<Rectangle, int> slimeRewardDictionary = new Dictionary<Rectangle, int>();
 
         private List<Rectangle> bullets = new List<Rectangle>();
@@ -120,6 +121,7 @@ namespace Slime_Busters
             ShootBullets();
             MoveSlime();
             CheckBulletSlimeCollision();
+            SlimePlayerCollision();
         }
 
         #endregion
@@ -310,6 +312,7 @@ namespace Slime_Busters
                     {
                         PlayerScreen.Children.Remove(slime);
                         slimeHealthDictionary.Remove(slime);
+                        slimeDamageDictionary.Remove(slime);
                         slimeRewardDictionary.Remove(slime);
                         slimes.RemoveAt(i);
                     }
@@ -317,6 +320,51 @@ namespace Slime_Busters
             }
         }
 
+        private void SlimePlayerCollision()
+        {
+            for (int i = slimes.Count -1; i >= 0; i--)
+            {
+                Rectangle slime = slimes[i];
+                if (slime.Tag != null)
+                {
+                    int slimeDirection = (int)slime.Tag;
+                    if (Canvas.GetLeft(playerOne) + playerOne.Width >= Canvas.GetLeft(slime) && Values.playerOneDied == false)
+                    {
+                        Values.playerOneCurrentHealth -= slimeDamageDictionary[slime];
+
+                        PlayerScreen.Children.Remove(slime);
+                        slimeHealthDictionary.Remove(slime);
+                        slimeDamageDictionary.Remove(slime);
+                        slimeRewardDictionary.Remove(slime);
+                        slimes.RemoveAt(i);
+
+                        if (Values.playerOneCurrentHealth <= 0)
+                        {
+                            Values.playerOneDied = true;
+                            PlayerScreen.Children.Remove(playerOne);
+                            PlayerScreen.Children.Remove(playerOneSprite);
+                        }
+                    }
+                    if (Canvas.GetLeft(playerTwo) <= Canvas.GetLeft(slime) + slime.Width && Values.playerTwoDied == false)
+                    {
+                        Values.playerTwoCurrentHealth -= slimeDamageDictionary[slime];
+
+                        PlayerScreen.Children.Remove(slime);
+                        slimeHealthDictionary.Remove(slime);
+                        slimeDamageDictionary.Remove(slime);
+                        slimeRewardDictionary.Remove(slime);
+                        slimes.RemoveAt(i);
+
+                        if (Values.playerTwoCurrentHealth <= 0)
+                        {
+                            Values.playerTwoDied = true;
+                            PlayerScreen.Children.Remove(playerTwo);
+                            PlayerScreen.Children.Remove(playerTwoSprite);
+                        }
+                    }
+                }
+            }
+        }
         #endregion
 
         #region Collision Detection
@@ -642,6 +690,7 @@ private void CheckBulletSlimeCollision()
                 slimes.Add(slime);
 
                 slimeHealthDictionary[slime] = slimeHealth;
+                slimeDamageDictionary[slime] = slimeDamage;
                 slimeRewardDictionary[slime] = slimeReward;
                 Values.slimeCounter++;
             }
