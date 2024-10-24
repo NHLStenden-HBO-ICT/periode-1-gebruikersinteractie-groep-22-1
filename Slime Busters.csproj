@@ -44,4 +44,13 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="slime_level1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="slime_level2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
