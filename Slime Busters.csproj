@@ -18,6 +18,7 @@
     <None Remove="main menu scenery.jpg" />
     <None Remove="Spelen Zwart.png" />
     <None Remove="Stoppen.png" />
+    <None Remove="Water Tank PNG.png" />
     <None Remove="Winkel Zwart.png" />
   </ItemGroup>
 
@@ -37,6 +38,7 @@
     <Resource Include="Stoppen.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Water Tank PNG.png" />
     <Resource Include="Winkel Zwart.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
