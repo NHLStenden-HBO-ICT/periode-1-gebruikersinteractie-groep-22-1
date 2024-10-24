@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -326,16 +327,19 @@ namespace Slime_Busters
 
         private void SlimePlayerCollision()
         {
-            for (int i = slimes.Count -1; i >= 0; i--)
+            for (int i = slimes.Count - 1; i >= 0; i--)
             {
                 Rectangle slime = slimes[i];
                 if (slime.Tag != null)
                 {
                     int slimeDirection = (int)slime.Tag;
+
+                    // Check for playerOne collision and health
                     if (Canvas.GetLeft(playerOne) + playerOne.Width >= Canvas.GetLeft(slime) && Values.playerOneDied == false)
                     {
                         Values.playerOneCurrentHealth -= slimeDamageDictionary[slime];
 
+                        // Remove the slime from the game
                         PlayerScreen.Children.Remove(slime);
                         slimeHealthDictionary.Remove(slime);
                         slimeDamageDictionary.Remove(slime);
@@ -345,14 +349,18 @@ namespace Slime_Busters
                         if (Values.playerOneCurrentHealth <= 0)
                         {
                             Values.playerOneDied = true;
-                            PlayerScreen.Children.Remove(playerOne);
-                            PlayerScreen.Children.Remove(playerOneSprite);
+
+                            // Trigger fade-out animation for playerOne
+                            FadeOutAndRemovePlayer(playerOne, playerOneSprite);
                         }
                     }
+
+                    // Check for playerTwo collision and health
                     if (Canvas.GetLeft(playerTwo) <= Canvas.GetLeft(slime) + slime.Width && Values.playerTwoDied == false)
                     {
                         Values.playerTwoCurrentHealth -= slimeDamageDictionary[slime];
 
+                        // Remove the slime from the game
                         PlayerScreen.Children.Remove(slime);
                         slimeHealthDictionary.Remove(slime);
                         slimeDamageDictionary.Remove(slime);
@@ -362,8 +370,9 @@ namespace Slime_Busters
                         if (Values.playerTwoCurrentHealth <= 0)
                         {
                             Values.playerTwoDied = true;
-                            PlayerScreen.Children.Remove(playerTwo);
-                            PlayerScreen.Children.Remove(playerTwoSprite);
+
+                            // Trigger fade-out animation for playerTwo
+                            FadeOutAndRemovePlayer(playerTwo, playerTwoSprite);
                         }
                     }
                 }
@@ -371,56 +380,76 @@ namespace Slime_Busters
                 playerTwoHealthBar.Value = Values.playerTwoCurrentHealth;
             }
         }
+
+        private void FadeOutAndRemovePlayer(UIElement player, UIElement playerSprite)
+        {
+            DoubleAnimation fadeOutAnimation = new DoubleAnimation(1.0, 0.0, TimeSpan.FromSeconds(2)); // 2 seconds fade-out
+
+            // When the animation completes, remove the player from the screen
+            fadeOutAnimation.Completed += (s, e) =>
+            {
+                PlayerScreen.Children.Remove(player);
+                PlayerScreen.Children.Remove(playerSprite);
+            };
+
+            // Start the fade-out animation
+            player.BeginAnimation(UIElement.OpacityProperty, fadeOutAnimation);
+            playerSprite.BeginAnimation(UIElement.OpacityProperty, fadeOutAnimation); // Optional: animate the sprite too
+        }
         #endregion
 
         #region Collision Detection
 
-private void CheckBulletSlimeCollision()
-{
-    SoundPlayer soundPlayer = new SoundPlayer("8-Bit Coin Sound Effect (Copyright Free).wav");
-
-    for (int i = bullets.Count - 1; i >= 0; i--)
-    {
-        Rectangle bullet = bullets[i];
-        for (int j = slimes.Count - 1; j >= 0; j--)
+        private void CheckBulletSlimeCollision()
         {
-            Rectangle slime = slimes[j];
+            SoundPlayer soundPlayer = new SoundPlayer("8-Bit Coin Sound Effect (Copyright Free).wav");
 
-            if (IsColliding(bullet, slime))
+            for (int i = bullets.Count - 1; i >= 0; i--)
             {
-                // Remove bullet
-                PlayerScreen.Children.Remove(bullet);
-                bullets.RemoveAt(i);
-
-                // Damage to slime
-                slimeHealthDictionary[slime] -= Values.playersDamage;
-
-                // Check if slime is dead
-                if (slimeHealthDictionary[slime] <= 0)
+                Rectangle bullet = bullets[i];
+                for (int j = slimes.Count - 1; j >= 0; j--)
                 {
-                    soundPlayer.Play();
+                    Rectangle slime = slimes[j];
 
-                    PlayerScreen.Children.Remove(slime);
-                    slimeHealthDictionary.Remove(slime);
-                    slimes.RemoveAt(j);
-                    Values.coins += slimeRewardDictionary[slime];
-                    ShowCoinPopup(slimeRewardDictionary[slime], new Point(Canvas.GetLeft(slime), Canvas.GetTop(slime))); // Show popup
-                    slimeRewardDictionary.Remove(slime);
-                    Values.slimesKilled++;
-                    GameCoinsAmount.Text = Values.coins.ToString();
-
-                    if (Values.slimesKilled >= Values.waveRequirement)
+                    if (IsColliding(bullet, slime))
                     {
-                        Values.currentWave++;
-                        Values.waveRequirement += Values.waveRequirement;
-                        WaveAmount.Text = (Values.currentWave + 1).ToString();
+                        // Remove bullet
+                        PlayerScreen.Children.Remove(bullet);
+                        bullets.RemoveAt(i);
+
+                        // Damage to slime
+                        slimeHealthDictionary[slime] -= Values.playersDamage;
+
+                        // Check if slime is dead
+                        if (slimeHealthDictionary[slime] <= 0)
+                        {
+                            soundPlayer.Play();
+
+                            // Trigger fade-out animation for slime
+                            FadeOutAndRemoveSlime(slime);
+
+                            // Remove slime data (health, rewards, etc.)
+                            slimeHealthDictionary.Remove(slime);
+                            Values.coins += slimeRewardDictionary[slime];
+                            ShowCoinPopup(slimeRewardDictionary[slime], new Point(Canvas.GetLeft(slime), Canvas.GetTop(slime))); // Show popup
+                            slimeRewardDictionary.Remove(slime);
+                            slimes.RemoveAt(j);
+                            Values.slimesKilled++;
+                            GameCoinsAmount.Text = Values.coins.ToString();
+
+                            // Check if wave is complete
+                            if (Values.slimesKilled >= Values.waveRequirement)
+                            {
+                                Values.currentWave++;
+                                Values.waveRequirement += Values.waveRequirement;
+                                WaveAmount.Text = (Values.currentWave + 1).ToString();
+                            }
+                        }
+                        break;
                     }
                 }
-                break;
             }
         }
-    }
-}
         private async void ShowCoinPopup(int coins, Point position)
         {
             string coinText = coins == 1 ? "1 munt" : $"{coins} munten";
@@ -451,6 +480,21 @@ private void CheckBulletSlimeCollision()
             // Remove the popup
             PlayerScreen.Children.Remove(coinPopup);
         }
+
+        private void FadeOutAndRemoveSlime(UIElement slime)
+        {
+            DoubleAnimation fadeOutAnimation = new DoubleAnimation(1.0, 0.0, TimeSpan.FromSeconds(1)); // 2 seconds fade-out
+
+            // When the animation completes, remove the slime from the screen
+            fadeOutAnimation.Completed += (s, e) =>
+            {
+                PlayerScreen.Children.Remove(slime);
+            };
+
+            // Start the fade-out animation
+            slime.BeginAnimation(UIElement.OpacityProperty, fadeOutAnimation);
+        }
+
 
         private bool IsColliding(Rectangle bullet, Rectangle slime)
         {

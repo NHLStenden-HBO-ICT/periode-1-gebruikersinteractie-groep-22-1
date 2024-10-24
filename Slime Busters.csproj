@@ -46,6 +46,9 @@
     <None Update="8-Bit Coin Sound Effect %28Copyright Free%29.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Little Samson %28NES%29 Music - Gamm Theme.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Little Samson %28NES%29 Music - Title Theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

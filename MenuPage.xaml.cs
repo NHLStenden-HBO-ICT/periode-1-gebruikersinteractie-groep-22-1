@@ -34,7 +34,7 @@ namespace Slime_Busters_Menu
         }
         public void PlayBackgroundMusic()
         {
-            BackgroundMusic.Source = new Uri(@"C:\Users\danie\source\repos\1-22-1-d\Little Samson (NES) Music - Title Theme.wav", UriKind.RelativeOrAbsolute);
+            BackgroundMusic.Source = new Uri("Little Samson (NES) Music - Gamm Theme.wav", UriKind.RelativeOrAbsolute);
             BackgroundMusic.Volume = 1.0; // Set volume as needed
             BackgroundMusic.Play();
         }
