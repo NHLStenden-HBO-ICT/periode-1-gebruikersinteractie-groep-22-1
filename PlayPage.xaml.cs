@@ -57,6 +57,10 @@ namespace Slime_Busters
             bulletsTwoProgressBar.Value = Values.currentBulletsTwo;
             bulletsOneProgressBar.Maximum = Values.maxBullets;
             bulletsTwoProgressBar.Maximum = Values.maxBullets;
+            playerOneHealthBar.Value = Values.playerOneCurrentHealth;
+            playerTwoHealthBar.Value = Values.playerTwoCurrentHealth;
+            playerOneHealthBar.Maximum = Values.playersMaxHealth;
+            playerTwoHealthBar.Maximum = Values.playersMaxHealth;
 
             gameTimer = new DispatcherTimer();
             gameTimer.Interval = TimeSpan.FromMilliseconds(1);
@@ -148,7 +152,7 @@ namespace Slime_Busters
             if (e.Key == Key.D)
                 moveRightOne = false;
 
-            if (e.Key == Key.W)
+            if (e.Key == Key.W && Values.playerOneDied == false)
                 if (Values.currentBulletsOne > 0)
                 {
                     MakeBullets(playerOne, 10, 700);
@@ -162,7 +166,7 @@ namespace Slime_Busters
             if (e.Key == Key.L)
                 moveRightTwo = false;
 
-            if (e.Key == Key.I)
+            if (e.Key == Key.I && Values.playerTwoDied == false)
                 if (Values.currentBulletsTwo > 0)
                 {
                     MakeBullets(playerTwo, -10, 700);
@@ -363,6 +367,8 @@ namespace Slime_Busters
                         }
                     }
                 }
+                playerOneHealthBar.Value = Values.playerOneCurrentHealth;
+                playerTwoHealthBar.Value = Values.playerTwoCurrentHealth;
             }
         }
         #endregion
@@ -371,7 +377,7 @@ namespace Slime_Busters
 
 private void CheckBulletSlimeCollision()
 {
-    SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\danie\source\repos\1-22-1-d\8-Bit Coin Sound Effect (Copyright Free).wav");
+    SoundPlayer soundPlayer = new SoundPlayer("8-Bit Coin Sound Effect (Copyright Free).wav");
 
     for (int i = bullets.Count - 1; i >= 0; i--)
     {
@@ -664,35 +670,55 @@ private void CheckBulletSlimeCollision()
                 }
             }
 
-            if (slimeSpawning == true)
+
+            if (Values.playerOneDied == false || Values.playerTwoDied == false)
             {
-                slime = new Rectangle
+                if (slimeSpawning == true)
                 {
-                    Width = slimeWidth,
-                    Height = slimeHeight,
-                    Fill = slimeFill
-                };
+                    slime = new Rectangle
+                    {
+                        Width = slimeWidth,
+                        Height = slimeHeight,
+                        Fill = slimeFill
+                    };
 
-                if (directionSlime == 0)
-                {
-                    slime.Tag = Values.slimeSpeed;
+                    if (directionSlime == 0)
+                    {
+                        if (Values.playerOneDied == true)
+                        {
+                            slime.Tag = Values.slimeSpeed;
+                        }
+                        else
+                        {
+                            slime.Tag = -Values.slimeSpeed;
+                        }
+                    }
+                    else
+                    {
+                        if (Values.playerTwoDied == true)
+                        {
+                            slime.Tag = -Values.slimeSpeed;
+                        }
+                        else
+                        {
+                            slime.Tag = Values.slimeSpeed;
+                        }
+                    }
+
+
+
+                    double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
+                    double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
+                    Canvas.SetLeft(slime, centerX);
+                    Canvas.SetTop(slime, centerY);
+                    PlayerScreen.Children.Add(slime);
+                    slimes.Add(slime);
+
+                    slimeHealthDictionary[slime] = slimeHealth;
+                    slimeDamageDictionary[slime] = slimeDamage;
+                    slimeRewardDictionary[slime] = slimeReward;
+                    Values.slimeCounter++;
                 }
-                else
-                {
-                    slime.Tag = -Values.slimeSpeed;
-                }
-
-                double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
-                double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
-                Canvas.SetLeft(slime, centerX);
-                Canvas.SetTop(slime, centerY);
-                PlayerScreen.Children.Add(slime);
-                slimes.Add(slime);
-
-                slimeHealthDictionary[slime] = slimeHealth;
-                slimeDamageDictionary[slime] = slimeDamage;
-                slimeRewardDictionary[slime] = slimeReward;
-                Values.slimeCounter++;
             }
         }
 

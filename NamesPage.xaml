@@ -18,8 +18,8 @@
         <Label x:Name="NameLabel1" Content="Speler 1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1000, -700, 0, 90" FontSize="50" FontFamily="Arial" />
         <Label x:Name="NameLabel2" Content="Speler 2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1000, -700, 0, 90" FontSize="50" FontFamily="Arial" />
 
-        <TextBox x:Name="namePlayer1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="-1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="LightGray" FontFamily="Arial" />
-        <TextBox x:Name="namePlayer2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="LightGray" FontFamily="Arial" />
+        <TextBox x:Name="namePlayer1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="-1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="#3F000000"  FontFamily="Arial" />
+        <TextBox x:Name="namePlayer2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="#3F000000" FontFamily="Arial" />
         
         <!-- buttons for navigation -->
         <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="BackButtonClick" FontSize="36"/>

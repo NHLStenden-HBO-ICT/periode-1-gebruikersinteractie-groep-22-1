@@ -46,6 +46,9 @@
                 </ProgressBar.RenderTransform>
             </ProgressBar>
 
+            <ProgressBar x:Name="playerOneHealthBar" Width="180" Height="20" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="60" Canvas.Top="948" BorderThickness="4" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <ProgressBar x:Name="playerTwoHealthBar" Width="180" Height="20" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="1678" Canvas.Top="948" BorderThickness="4" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <!-- Players -->
 
             <Rectangle x:Name="playerOne" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="150" Canvas.Left="100"/>
