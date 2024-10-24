@@ -323,7 +323,7 @@ namespace Slime_Busters
 
 private void CheckBulletSlimeCollision()
 {
-    SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\danie\source\repos\1-22-1-d\8-Bit Coin Sound Effect (Copyright Free).wav");
+    SoundPlayer soundPlayer = new SoundPlayer("8-Bit Coin Sound Effect (Copyright Free).wav");
 
     for (int i = bullets.Count - 1; i >= 0; i--)
     {
