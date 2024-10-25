@@ -15,14 +15,17 @@ namespace Slime_Busters
         public static int coins = 0; // Aantal munten dat de spelers hebben
 
         // Namen 
+        public static bool enteredNames = false;
         public static string playerOneName = "blank"; // Aanpassen op naam scherm
         public static string playerTwoName = "blank"; // Aanpassen op naam scherm
 
         // Player set
+        public static bool playerOneDied = false;
+        public static bool playerTwoDied = false;
         public static double playersMovementSpeed = 10; // Snelheid dat spelers lopen
-        public static int playersMaxHealth = 100; // Maximale hp (aanpasbaar in winkel)
+        public static int playersMaxHealth = 10; // Maximale hp (aanpasbaar in winkel)
         public static int playersDamage = 5; // Damage per tick (aanpasbaar in winkel)
-        public static int maxBullets = 10; // Maximale aantal kogels
+        public static int maxBullets = 6; // Maximale aantal kogels
         public static int currentBulletsOne = maxBullets; // Aanpassen tijdens spel
         public static int currentBulletsTwo = maxBullets; // Aanpassen tijdens spel
 
@@ -41,10 +44,10 @@ namespace Slime_Busters
         public static int slimeSpeed = 5; // Snelheid waarmee slimes lopen
 
         public static int slime1Health = 10; // Health van slime
-        public static int slime1Damage = 15; // Damage van slime
+        public static int slime1Damage = 2; // Damage van slime
         public static int slime1Reward = 1; // Geld dat speler krijgt wanneer slime dood gaat
         public static int slime2Health = 20; // Health van slime
-        public static int slime2Damage = 25; // Damage van slime
+        public static int slime2Damage = 4; // Damage van slime
         public static int slime2Reward = 2; // Geld dat speler krijgt wanneer slime dood gaat
         // Hoe gebruik ik dit?
         // Deze tab is om alle waarden te constateren in 1 script. Hierdoor staan alle waarden bij elkaar en kun je makkelijk

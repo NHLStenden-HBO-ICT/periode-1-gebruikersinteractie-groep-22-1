@@ -96,7 +96,7 @@ namespace Slime_Busters
                     {
                         Values.coins -= 10; // 10 munten minder
                         CoinsAmount.Text = Values.coins.ToString(); // Zet coins neer in .xaml
-                        Values.playersMaxHealth += 10; // Spelers krijgen 10 meer health
+                        Values.playersMaxHealth += 1; // Spelers krijgen 10 meer health
                         Values.playerHealthUpgrade++; // Registreert dat Health is geupgrade
                         DefenseProgressBar.Value = Values.playerHealthUpgrade; // Zet upgrade level neer in .xaml
 

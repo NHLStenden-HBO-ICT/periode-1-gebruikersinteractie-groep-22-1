@@ -16,14 +16,14 @@
             <!-- Coins Meter -->
             <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1401"/>
-            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="70" FontFamily="Cooper Black" Canvas.Left="1770" RenderTransformOrigin="-0.971,0.617"/>
+                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1400"/>
+            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="1770" RenderTransformOrigin="-0.971,0.617"/>
 
             <!-- Wave Counter-->
             <TextBlock x:Name="WaveCounter" Text="Wave: "
                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                   FontSize="70" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="844"/>
-            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="70" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="80" RenderTransformOrigin="-0.971,0.617"/>
+                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="844"/>
+            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="80" RenderTransformOrigin="-0.971,0.617"/>
 
             <ProgressBar x:Name="bulletsOneProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="10" Canvas.Top="400" BorderThickness="7" Foreground="Aqua">
                 <ProgressBar.RenderTransform>
@@ -46,6 +46,9 @@
                 </ProgressBar.RenderTransform>
             </ProgressBar>
 
+            <ProgressBar x:Name="playerOneHealthBar" Width="180" Height="20" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="60" Canvas.Top="948" BorderThickness="4" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <ProgressBar x:Name="playerTwoHealthBar" Width="180" Height="20" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="1678" Canvas.Top="948" BorderThickness="4" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <!-- Players -->
 
             <Rectangle x:Name="playerOne" Height="200" Width="100" Fill="Transparent" Canvas.Bottom="150" Canvas.Left="100"/>
@@ -60,7 +63,18 @@
             <Label x:Name="Player1Label" Background="Transparent" Content="" FontSize="25" FontWeight="Bold" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="55" Width="273" HorizontalContentAlignment="Center" Canvas.Top="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="43"/>
             <Label x:Name="Player2Label" Background="Transparent" Content="" FontSize="25" FontWeight="Bold" FontFamily="Arial" Canvas.Bottom="570" Canvas.Left="1585" Width="273" HorizontalContentAlignment="Center" Canvas.Top="450" HorizontalAlignment="Center" Height="43" VerticalAlignment="Center"/>
             <Frame x:Name="Play" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Play_Navigated" Canvas.Left="-25" Canvas.Top="10"/>
+
+            <Canvas HorizontalAlignment="Left" Canvas.Left="62" VerticalAlignment="Center">
+                <Image Source="/Water Tank PNG.png" Width="63" Canvas.Left="1797" Canvas.Top="212" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Image Source="/Water Tank PNG.png" Width="63" HorizontalAlignment="Center" Canvas.Top="212" VerticalAlignment="Top">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Canvas>
         </Canvas>
+
+
     </Grid>
 </Page>
 

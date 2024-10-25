@@ -18,6 +18,7 @@
     <None Remove="main menu scenery.jpg" />
     <None Remove="Spelen Zwart.png" />
     <None Remove="Stoppen.png" />
+    <None Remove="Water Tank PNG.png" />
     <None Remove="Winkel Zwart.png" />
   </ItemGroup>
 
@@ -37,6 +38,7 @@
     <Resource Include="Stoppen.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Water Tank PNG.png" />
     <Resource Include="Winkel Zwart.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -50,6 +52,9 @@
      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="8-Bit Coin Sound Effect %28Copyright Free%29.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Little Samson %28NES%29 Music - Gamm Theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Little Samson %28NES%29 Music - Title Theme.wav">
