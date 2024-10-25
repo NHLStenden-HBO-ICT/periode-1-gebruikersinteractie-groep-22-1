@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Slime_Busters_Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -573,7 +574,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -583,7 +584,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -601,7 +602,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -611,7 +612,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -629,7 +630,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -639,7 +640,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -657,7 +658,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -667,7 +668,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -685,7 +686,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -695,7 +696,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -713,7 +714,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -723,7 +724,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -775,7 +776,70 @@ namespace Slime_Busters
         {
             // Handle navigation events if needed
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void Pause_Click(object sender, RoutedEventArgs e)
+        {
+
+            PauseRectangle.Visibility = Visibility.Visible;
+            Continue.Visibility = Visibility.Visible;
+            Stop.Visibility = Visibility.Visible;
+
+            gameTimer.Stop();
+            spawnTimer.Stop();
+
+
+
+        }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+
+            PauseRectangle.Visibility = Visibility.Hidden;
+            Continue.Visibility = Visibility.Hidden;
+            Stop.Visibility = Visibility.Hidden;
+
+
+            gameTimer.Start();
+            spawnTimer.Start();
+
+
+
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+
+            this.NavigationService?.Navigate(new MenuPage());
+
+
+
+        }
+
+
+
+
     }
+
 
 
 }

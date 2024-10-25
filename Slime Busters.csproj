@@ -16,7 +16,9 @@
     <None Remove="Background Game.png" />
     <None Remove="Little Samson %28NES%29 Music - Title Theme.mp4" />
     <None Remove="main menu scenery.jpg" />
+    <None Remove="namenscherm.png" />
     <None Remove="Spelen Zwart.png" />
+    <None Remove="Startscherm.png" />
     <None Remove="Stoppen.png" />
     <None Remove="Water Tank PNG.png" />
     <None Remove="Winkel Zwart.png" />
@@ -32,9 +34,11 @@
     <Resource Include="main menu scenery.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="namenscherm.png" />
     <Resource Include="Spelen Zwart.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Startscherm.png" />
     <Resource Include="Stoppen.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

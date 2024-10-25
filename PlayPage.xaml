@@ -14,16 +14,16 @@
             <Image Source="/Background Game.png" Width="1920"/>
 
             <!-- Coins Meter -->
-            <TextBlock x:Name="GameCoinsTextBlock" Text="Munten: "
-                   HorizontalAlignment="Left" VerticalAlignment="Top"
-                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1400"/>
-            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="1770" RenderTransformOrigin="-0.971,0.617"/>
+            <TextBlock x:Name="GameCoinsTextBlock" Text=" Munten: " Background="#FFFFD55A"
+                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="1437" Width="458" Canvas.Top="19" Height="77"/>
+            <TextBlock x:Name="GameCoinsAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="1781" RenderTransformOrigin="-0.971,0.617" Canvas.Top="19"/>
 
             <!-- Wave Counter-->
-            <TextBlock x:Name="WaveCounter" Text="Wave: "
-                   HorizontalAlignment="Left" VerticalAlignment="Top"
-                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="844"/>
-            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="65" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="80" RenderTransformOrigin="-0.971,0.617"/>
+            <TextBlock x:Name="WaveCounter" Text=" Ronde: " Background="#FFFFD55A"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   FontSize="65" FontFamily="Cooper Black" RenderTransformOrigin="5.253,0.318" Canvas.Left="829" Canvas.Top="24"/>
+            <TextBlock x:Name="WaveAmount" Text="x" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="65" Foreground="#FFFFD55A" FontFamily="Cooper Black" Canvas.Left="939" Canvas.Top="104" RenderTransformOrigin="-0.971,0.617"/>
 
             <ProgressBar x:Name="bulletsOneProgressBar" Width="180" Height="40" Minimum="0" Maximum="3" Value="1" Background="#FFE6E6E6" Canvas.Left="10" Canvas.Top="400" BorderThickness="7" Foreground="Aqua">
                 <ProgressBar.RenderTransform>
@@ -73,6 +73,14 @@
                 </Image>
                 <Image Source="/Middle pillar cutout.png" Width="150" Canvas.Left="824" Canvas.Top="703" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="10"/>
             </Canvas>
+            <Button x:Name="Pause" Background="#FFFFD55A" Content="Pauze" FontFamily="Cooper Black" FontSize="65" Width="249" Height="77" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Pause_Click" Canvas.Left="20" Canvas.Top="19"/>
+
+            <Rectangle x:Name="PauseRectangle" Fill="#FF7F7F7F" Stroke="Black" StrokeThickness="4" Width="696" Height="447" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" Canvas.Left="612" Canvas.Top="333"/>
+
+            <Button x:Name="Continue" Background="#FFFFD55A" Content="Hervatten" FontFamily="Cooper Black" FontSize="56" Width="538" Height="130" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Continue_Click" BorderBrush="Black" BorderThickness="4" Visibility="Hidden" Canvas.Left="690" Canvas.Top="387"/>
+
+            <Button x:Name="Stop" Background="#FFFFD55A" Content="Stoppen" FontFamily="Cooper Black" FontSize="56" Width="538" Height="130" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Stop_Click" BorderBrush="Black" BorderThickness="4" Visibility="Hidden" Canvas.Left="690" Canvas.Top="582"/>
+
         </Canvas>
 
 

@@ -9,7 +9,7 @@
 
     <Grid Height="1080px" Width="1920px">
         <!-- background image -->
-        <Image Source="/main menu scenery.jpg" Stretch="Fill"/>
+        <Image Source="/Startscherm.png" Stretch="Fill"/>
 
         <!-- grid for buttons -->
         <Grid>

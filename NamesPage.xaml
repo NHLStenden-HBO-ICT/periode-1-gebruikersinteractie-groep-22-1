@@ -12,22 +12,22 @@
     <Grid Height="1080" Width="1920">
 
         <!-- background image -->
-        <Image Source="/main menu scenery.jpg" Stretch="Fill"/>
+        <Image Source="/namenscherm.png" Stretch="Fill"/>
 
         <!-- labels and textboxes for player names -->
-        <Label x:Name="NameLabel1" Content="Speler 1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1000, -700, 0, 90" FontSize="50" FontFamily="Arial" />
-        <Label x:Name="NameLabel2" Content="Speler 2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1000, -700, 0, 90" FontSize="50" FontFamily="Arial" />
+        <Label x:Name="NameLabel1" Content="Speler 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,206,0,0" FontSize="50" FontFamily="Cooper Black" />
+        <Label x:Name="NameLabel2" Content="Speler 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1164,206,0,0" FontSize="50" FontFamily="Cooper Black" />
 
-        <TextBox x:Name="namePlayer1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="-1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="#3F000000"  FontFamily="Arial" />
-        <TextBox x:Name="namePlayer2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="1000, -600, 0, 0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="#3F000000" FontFamily="Arial" />
-        
+        <TextBox x:Name="namePlayer1" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="401,278,0,0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="#AFFFD55A"  FontFamily="Cooper Black" />
+        <TextBox x:Name="namePlayer2" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="1022,278,0,0" Width="500" Height="100" FontSize="50" TextAlignment="Center" Background="#AFFFD55A" FontFamily="Cooper Black" />
+
         <!-- buttons for navigation -->
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="BackButtonClick" FontSize="36"/>
-        <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="StartButtonClick" FontSize="36"/>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="BackButtonClick" FontSize="36" FontFamily="Cooper Black" Background="#FFFFD55A"/>
+        <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="StartButtonClick" FontSize="36" FontFamily="Cooper Black" Background="#FFFFD55A"/>
 
 
-        <Image Margin="668,295,0,180" Source="/.Schetsen6to1.png" Stretch="Fill"/>
-        <Image Margin="10,295,658,180" Source="/.Schetsen6to13.png" Stretch="Fill"/>
+        <Image Margin="472,465,196,10" Source="/.Schetsen6to1.png" Stretch="Fill"/>
+        <Image Margin="208,465,460,10" Source="/.Schetsen6to13.png" Stretch="Fill"/>
         <Frame Name="Names" NavigationUIVisibility="Hidden" Height="1080" Width="1920" Navigated="Names_Navigated"></Frame>
     </Grid>
 </Page>
