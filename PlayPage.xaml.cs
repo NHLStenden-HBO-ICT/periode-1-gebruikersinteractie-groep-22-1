@@ -274,7 +274,7 @@ namespace Slime_Busters
                 {
                     Width = 75,
                     Height = 75,
-                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/slime_level1.png"))
+                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"))
 
                 };
                 slimeHealth = Values.slime2Health;
@@ -286,7 +286,7 @@ namespace Slime_Busters
                 {
                     Width = 50,
                     Height = 50,
-                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/slime_level2.png"))
+                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
                 };
                 slimeHealth = Values.slime1Health;
                 slimeReward = Values.slime1Reward;
@@ -728,7 +728,7 @@ namespace Slime_Busters
                     {
                     Width = slimeWidth,
                     Height = slimeHeight,
-                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/slime_level1.png"))
+                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
                     };
 
                     if (directionSlime == 0)
