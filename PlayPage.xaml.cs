@@ -272,9 +272,9 @@ namespace Slime_Busters
             {
                 slime = new Image
                 {
-                    Width = 75,
-                    Height = 75,
-                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"))                   
+                    Width = 150,
+                    Height = 150,
+                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"))                   
                 };
                 Canvas.SetZIndex(slime, 1);
                 slimeHealth = Values.slime2Health;
@@ -284,9 +284,9 @@ namespace Slime_Busters
             {
                 slime = new Image
                 {
-                    Width = 50,
-                    Height = 50,
-                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
+                    Width = 100,
+                    Height = 100,
+                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
                 };
                 Canvas.SetZIndex(slime, 1);
                 slimeHealth = Values.slime1Health;
@@ -571,18 +571,20 @@ namespace Slime_Busters
                 {
                     if (typeSlime <= 100) // Kans op slime 1
                     {
-                        slimeWidth = 50;
-                        slimeHeight = 50;
-                        slimeFill = Brushes.Green;
+                        slimeWidth = 100;
+                        slimeHeight = 100;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
                         slimeReward = Values.slime1Reward;
                     }
                     else
                     {
-                        slimeWidth = 75;
-                        slimeHeight = 75;
-                        slimeFill = Brushes.Blue;
+                        slimeWidth = 150;
+                        slimeHeight = 150;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
@@ -597,18 +599,20 @@ namespace Slime_Busters
                 {
                     if (typeSlime <= 90) // Kans op slime 1
                     {
-                        slimeWidth = 50;
-                        slimeHeight = 50;
-                        slimeFill = Brushes.Green;
+                        slimeWidth = 100;
+                        slimeHeight = 100;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
                         slimeReward = Values.slime1Reward;
                     }
                     else
                     {
-                        slimeWidth = 75;
-                        slimeHeight = 75;
-                        slimeFill = Brushes.Blue;
+                        slimeWidth = 150;
+                        slimeHeight = 150;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
@@ -623,18 +627,20 @@ namespace Slime_Busters
                 {
                     if (typeSlime <= 70) // Kans op slime 1
                     {
-                        slimeWidth = 50;
-                        slimeHeight = 50;
-                        slimeFill = Brushes.Green;
+                        slimeWidth = 100;
+                        slimeHeight = 100;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
                         slimeReward = Values.slime1Reward;
                     }
                     else
                     {
-                        slimeWidth = 75;
-                        slimeHeight = 75;
-                        slimeFill = Brushes.Blue;
+                        slimeWidth = 150;
+                        slimeHeight = 150;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
@@ -649,18 +655,20 @@ namespace Slime_Busters
                 {
                     if (typeSlime <= 50) // Kans op slime 1
                     {
-                        slimeWidth = 50;
-                        slimeHeight = 50;
-                        slimeFill = Brushes.Green;
+                        slimeWidth = 100;
+                        slimeHeight = 100;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
                         slimeReward = Values.slime1Reward;
                     }
                     else
                     {
-                        slimeWidth = 75;
-                        slimeHeight = 75;
-                        slimeFill = Brushes.Blue;
+                        slimeWidth = 150;
+                        slimeHeight = 150;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
@@ -675,18 +683,20 @@ namespace Slime_Busters
                 {
                     if (typeSlime <= 25) // Kans op slime 1
                     {
-                        slimeWidth = 50;
-                        slimeHeight = 50;
-                        slimeFill = Brushes.Green;
+                        slimeWidth = 100;
+                        slimeHeight = 100;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
                         slimeReward = Values.slime1Reward;
                     }
                     else
                     {
-                        slimeWidth = 75;
-                        slimeHeight = 75;
-                        slimeFill = Brushes.Blue;
+                        slimeWidth = 150;
+                        slimeHeight = 150;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
@@ -701,18 +711,20 @@ namespace Slime_Busters
                 {
                     if (typeSlime <= 0) // Kans op slime 1
                     {
-                        slimeWidth = 50;
-                        slimeHeight = 50;
-                        slimeFill = Brushes.Green;
+                        slimeWidth = 100;
+                        slimeHeight = 100;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
                         slimeReward = Values.slime1Reward;
                     }
                     else
                     {
-                        slimeWidth = 75;
-                        slimeHeight = 75;
-                        slimeFill = Brushes.Blue;
+                        slimeWidth = 150;
+                        slimeHeight = 150;
+                        BitmapImage slimeImage = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"));
+                        slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
                         slimeReward = Values.slime2Reward;
@@ -724,43 +736,27 @@ namespace Slime_Busters
 
             if (Values.playerOneDied == false || Values.playerTwoDied == false)
             {
-                if (slimeSpawning == true)
+                if (slimeSpawning)
                 {
                     slime = new Image
                     {
-                    Width = slimeWidth,
-                    Height = slimeHeight,
-                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
+                        Width = slimeWidth,
+                        Height = slimeHeight,
+                        Source = ((ImageBrush)slimeFill).ImageSource
                     };
                     Canvas.SetZIndex(slime, 1);
 
                     if (directionSlime == 0)
                     {
-                        if (Values.playerOneDied == true)
-                        {
-                            slime.Tag = Values.slimeSpeed;
-                        }
-                        else
-                        {
-                            slime.Tag = -Values.slimeSpeed;
-                        }
+                        slime.Tag = Values.playerOneDied ? Values.slimeSpeed : -Values.slimeSpeed;
                     }
                     else
                     {
-                        if (Values.playerTwoDied == true)
-                        {
-                            slime.Tag = -Values.slimeSpeed;
-                        }
-                        else
-                        {
-                            slime.Tag = Values.slimeSpeed;
-                        }
+                        slime.Tag = Values.playerTwoDied ? -Values.slimeSpeed : Values.slimeSpeed;
                     }
 
-
-
                     double centerX = (PlayerScreen.ActualWidth / 2) - (slime.Width / 2);
-                    double centerY = (PlayerScreen.ActualHeight / 2) - (-300);
+                    double centerY = (PlayerScreen.ActualHeight / 2) - (-250);
                     Canvas.SetLeft(slime, centerX);
                     Canvas.SetTop(slime, centerY);
                     PlayerScreen.Children.Add(slime);
