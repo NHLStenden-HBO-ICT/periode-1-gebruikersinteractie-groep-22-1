@@ -41,6 +41,12 @@ namespace Slime_Busters
             Values.playerTwoName = namePlayer2.Text;
             Values.enteredNames = true;
 
+            Values.playerOneCurrentHealth = Values.playersMaxHealth;
+            Values.playerTwoCurrentHealth = Values.playersMaxHealth;
+            Values.playerOneDied = false;
+            Values.playerTwoDied = false;
+
+
             NavigationService.Navigate(new PlayPage(Values.playerOneName, Values.playerTwoName));
 
         }
