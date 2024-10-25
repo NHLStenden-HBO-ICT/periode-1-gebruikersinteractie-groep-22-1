@@ -574,7 +574,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory()+ "/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -584,7 +584,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -602,7 +602,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -612,7 +612,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -630,7 +630,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -640,7 +640,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -658,7 +658,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -668,7 +668,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -686,7 +686,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -696,7 +696,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
@@ -714,7 +714,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 100;
                         slimeHeight = 100;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/kleineslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory()+ "/kleineslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime1Health;
                         slimeDamage = Values.slime1Damage;
@@ -724,7 +724,7 @@ namespace Slime_Busters
                     {
                         slimeWidth = 150;
                         slimeHeight = 150;
-                        BitmapImage slimeImage = new BitmapImage(new Uri("/groteslime.png"));
+                        BitmapImage slimeImage = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "/groteslime.png"));
                         slimeFill = new ImageBrush(slimeImage);
                         slimeHealth = Values.slime2Health;
                         slimeDamage = Values.slime2Damage;
