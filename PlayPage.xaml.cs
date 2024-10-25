@@ -25,12 +25,13 @@ namespace Slime_Busters
 
         private bool moveLeftOne, moveRightOne;
         private bool moveLeftTwo, moveRightTwo;
-        private Dictionary<Rectangle, int> slimeHealthDictionary = new Dictionary<Rectangle, int>();
-        private Dictionary<Rectangle, int> slimeDamageDictionary = new Dictionary<Rectangle, int>();
-        private Dictionary<Rectangle, int> slimeRewardDictionary = new Dictionary<Rectangle, int>();
+
+        private Dictionary<Image, int> slimeHealthDictionary = new Dictionary<Image, int>();
+        private Dictionary<Image, int> slimeDamageDictionary = new Dictionary<Image, int>();
+        private Dictionary<Image, int> slimeRewardDictionary = new Dictionary<Image, int>();
 
         private List<Rectangle> bullets = new List<Rectangle>();
-        private List<Rectangle> slimes = new List<Rectangle>();
+        private List<Image> slimes = new List<Image>();
 
         private DispatcherTimer r;
         private DispatcherTimer spawnTimer;
@@ -263,27 +264,29 @@ namespace Slime_Busters
             // || OUDE CODE, WORDT NIET MEER GEBRUIKT ||
             // ========================================
 
-            Rectangle slime;
+            Image slime;
             int slimeHealth;
             int slimeReward;
+           
             if (Values.slimeCounter % 3 == 0)
             {
-               slime = new Rectangle
+                slime = new Image
                 {
                     Width = 75,
                     Height = 75,
-                    Fill = Brushes.Blue
+                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/slime_level1.png"))
+
                 };
                 slimeHealth = Values.slime2Health;
                 slimeReward = Values.slime2Reward;
             }
             else
             {
-                slime = new Rectangle
+                slime = new Image
                 {
                     Width = 50,
                     Height = 50,
-                    Fill = Brushes.Green
+                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/slime_level2.png"))
                 };
                 slimeHealth = Values.slime1Health;
                 slimeReward = Values.slime1Reward;
@@ -307,7 +310,7 @@ namespace Slime_Busters
         {
             for (int i = slimes.Count - 1; i >= 0; i--)
             {
-                Rectangle slime = slimes[i];
+                Image slime = slimes[i];
                 if (slime.Tag != null)
                 {
                     int slimeDirection = (int)slime.Tag;
@@ -329,7 +332,7 @@ namespace Slime_Busters
         {
             for (int i = slimes.Count - 1; i >= 0; i--)
             {
-                Rectangle slime = slimes[i];
+                Image slime = slimes[i];
                 if (slime.Tag != null)
                 {
                     int slimeDirection = (int)slime.Tag;
@@ -383,6 +386,7 @@ namespace Slime_Busters
 
         private void FadeOutAndRemovePlayer(UIElement player, UIElement playerSprite)
         {
+
             DoubleAnimation fadeOutAnimation = new DoubleAnimation(1.0, 0.0, TimeSpan.FromSeconds(2)); // 2 seconds fade-out
 
             // When the animation completes, remove the player from the screen
@@ -409,7 +413,7 @@ namespace Slime_Busters
                 Rectangle bullet = bullets[i];
                 for (int j = slimes.Count - 1; j >= 0; j--)
                 {
-                    Rectangle slime = slimes[j];
+                    Image slime = slimes[j];
 
                     if (IsColliding(bullet, slime))
                     {
@@ -481,6 +485,7 @@ namespace Slime_Busters
             PlayerScreen.Children.Remove(coinPopup);
         }
 
+
         private void FadeOutAndRemoveSlime(UIElement slime)
         {
             DoubleAnimation fadeOutAnimation = new DoubleAnimation(1.0, 0.0, TimeSpan.FromSeconds(1)); // 2 seconds fade-out
@@ -496,7 +501,7 @@ namespace Slime_Busters
         }
 
 
-        private bool IsColliding(Rectangle bullet, Rectangle slime)
+        private bool IsColliding(Rectangle bullet, Image slime)
         {
             Rect bulletRect = new Rect(Canvas.GetLeft(bullet), Canvas.GetTop(bullet), bullet.Width, bullet.Height);
             Rect slimeRect = new Rect(Canvas.GetLeft(slime), Canvas.GetTop(slime), slime.Width, slime.Height);
@@ -549,7 +554,7 @@ namespace Slime_Busters
             int directionSlime = random.Next(2);
 
             bool slimeSpawning = false;
-            Rectangle slime;
+            Image slime;
             int slimeWidth = 10;
             int slimeHeight = 10;
             Brush slimeFill = Brushes.Black;
@@ -719,11 +724,11 @@ namespace Slime_Busters
             {
                 if (slimeSpawning == true)
                 {
-                    slime = new Rectangle
+                    slime = new Image
                     {
-                        Width = slimeWidth,
-                        Height = slimeHeight,
-                        Fill = slimeFill
+                    Width = slimeWidth,
+                    Height = slimeHeight,
+                    Source = new BitmapImage(new Uri("C:/Users/Durk/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/slime_level1.png"))
                     };
 
                     if (directionSlime == 0)
