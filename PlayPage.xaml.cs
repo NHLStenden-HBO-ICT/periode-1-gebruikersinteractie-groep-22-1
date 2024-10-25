@@ -770,6 +770,26 @@ namespace Slime_Busters
                     Values.slimeCounter++;
                 }
             }
+            else
+            {
+                // Reset slime spawning process
+                slimeSpawning = false;         // Stop slime spawning
+                spawnTimer?.Stop();            // Stop any spawn timer if it exists
+
+                // Clear PlayPage content
+                PlayerScreen.Children.Clear();
+                slimeHealthDictionary.Clear();
+                slimeDamageDictionary.Clear();
+                slimeRewardDictionary.Clear();
+                slimes.Clear();
+
+                Values.slimesKilled = 0;
+                Values.currentWave = 0;
+                Values.waveRequirement = 15;
+
+                Play.Content = new WinkelPage();
+                Visibility = Visibility.Hidden;
+            }
         }
 
         private void Play_Navigated(object sender, NavigationEventArgs e)
