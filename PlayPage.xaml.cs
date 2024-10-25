@@ -274,9 +274,9 @@ namespace Slime_Busters
                 {
                     Width = 75,
                     Height = 75,
-                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"))
-
+                    Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/groteslime.png"))                   
                 };
+                Canvas.SetZIndex(slime, 1);
                 slimeHealth = Values.slime2Health;
                 slimeReward = Values.slime2Reward;
             }
@@ -288,6 +288,7 @@ namespace Slime_Busters
                     Height = 50,
                     Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
                 };
+                Canvas.SetZIndex(slime, 1);
                 slimeHealth = Values.slime1Health;
                 slimeReward = Values.slime1Reward;
             }
@@ -299,6 +300,7 @@ namespace Slime_Busters
             Canvas.SetTop(slime, centerY);
 
             PlayerScreen.Children.Add(slime);
+            Canvas.SetZIndex(slime, 1);
             slime.Tag = slimeDirection;
             slimeHealthDictionary[slime] = slimeHealth;
             slimeRewardDictionary[slime] = slimeReward;
@@ -730,6 +732,7 @@ namespace Slime_Busters
                     Height = slimeHeight,
                     Source = new BitmapImage(new Uri("C:/Users/Admin/Source/Repos/periode-1-gebruikersinteractie-groep-22-1/kleineslime.png"))
                     };
+                    Canvas.SetZIndex(slime, 1);
 
                     if (directionSlime == 0)
                     {
@@ -761,6 +764,7 @@ namespace Slime_Busters
                     Canvas.SetLeft(slime, centerX);
                     Canvas.SetTop(slime, centerY);
                     PlayerScreen.Children.Add(slime);
+                    Canvas.SetZIndex(slime, 1);
                     slimes.Add(slime);
 
                     slimeHealthDictionary[slime] = slimeHealth;

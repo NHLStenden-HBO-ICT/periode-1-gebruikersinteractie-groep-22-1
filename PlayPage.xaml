@@ -71,6 +71,7 @@
                         <ScaleTransform ScaleX="-1"/>
                     </Image.RenderTransform>
                 </Image>
+                <Image Source="/Middle pillar cutout.png" Width="150" Canvas.Left="824" Canvas.Top="703" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="10"/>
             </Canvas>
         </Canvas>
 
